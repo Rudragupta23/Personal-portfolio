@@ -31,3 +31,30 @@ This project is my personal portfolio, designed to be a central hub for my profe
 **Deployment:** Netlify
 
 **Developer Tools:** Git, GitHub, VS Code
+
+### Project Structure:
+```
+/personal-portfolio
+|-- /assets
+|   |-- /css
+|   |   `-- styles.css
+|   `-- /js
+|       `-- script.js
+|-- /images
+|   |-- me_tekri.jpg
+|   `-- me_tekri2.jpg
+|-- index.html
+|-- my_cv.pdf
+`-- README.md
+```
+### Installation
+
+1.  Clone the repository:
+    ```sh
+    git clone https://github.com/Rudragupta23/Personal-portfolio
+    ```
+2.  Navigate to the project directory:
+    ```sh
+    cd personal-portfolio
+    ```
+3.  Open the `index.html` file in your web browser.
