@@ -42,7 +42,7 @@ This project is my personal portfolio, designed to be a central hub for my profe
 |-- my_cv.pdf
 |-- package.json
 |-- script.js
-`-- styles.css
+|-- styles.css
 ```
 ### Installation
 
