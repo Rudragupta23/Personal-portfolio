@@ -35,17 +35,14 @@ This project is my personal portfolio, designed to be a central hub for my profe
 ### Project Structure:
 ```
 /personal-portfolio
-|-- /assets
-|   |-- /css
-|   |   `-- styles.css
-|   `-- /js
-|       `-- script.js
-|-- /images
-|   |-- me_tekri.jpg
-|   `-- me_tekri2.jpg
+|-- README.md
 |-- index.html
+|-- me_tekri.jpg
+|-- me_tekri2.jpg
 |-- my_cv.pdf
-`-- README.md
+|-- package.json
+|-- script.js
+`-- styles.css
 ```
 ### Installation
 
