@@ -1,0 +1,11 @@
+{
+  "name": "personal-portfolio",
+  "version": "1.0.0",
+  "description": "Rudra Gupta Personal Portfolio",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Rudra Gupta",
+  "license": "ISC"
+}
