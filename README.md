@@ -38,7 +38,6 @@ This project is my personal portfolio, designed to be a central hub for my profe
 |-- README.md
 |-- index.html
 |-- me_tekri.jpg
-|-- me_tekri2.jpg
 |-- me.jpg
 |-- latest_cv.pdf
 |-- package.json
