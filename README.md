@@ -1,7 +1,7 @@
 # Rudra Gupta - Personal Portfolio
 A clean, modern, and responsive personal portfolio website to showcase my skills, projects, and journey as a web developer.
 <br>
-Website link - [www.rudraguptaportfolio.app](https://rudraguptaportfolio.live/)
+Website link - [www.rudraguptaportfolio.live](https://rudraguptaportfolio.live/)
 
 ### About:
 This project is my personal portfolio, designed to be a central hub for my professional presence online. It details my educational background, technical skills, and showcases the projects I have worked on. The website is built from scratch and reflects my passion for web development and creating user-friendly digital experiences.
