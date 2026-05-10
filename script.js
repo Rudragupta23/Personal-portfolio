@@ -141,7 +141,7 @@ function downloadResume() {
 
 // LinkedIn Function
 function openLinkedIn() {
-  window.open("https://www.linkedin.com/in/rudragupta23/", "_blank") // Corrected URL from previous response
+  window.open("https://www.linkedin.com/in/rudrag23/", "_blank") 
 
   // Add click animation
   const btn = event.target.closest(".btn")
