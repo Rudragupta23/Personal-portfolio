@@ -420,7 +420,7 @@ body {
 /* About Section */
 .about-content {
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 1.2fr 1.8fr;
   gap: 4rem;
   align-items: center;
 }
@@ -429,13 +429,14 @@ body {
   text-align: center;
 }
 
+/* About Section Image Update */
 .profile-img {
-  width: 300px;
-  height: 300px;
-  border-radius: 50%;
+  width: 450px;           /* Increased from 300px to fill the space */
+  height: 450px;          /* Increased from 300px */
+  border-radius: 15%;    /* Changed from 50% to 15px for a modern square look with rounded corners */
   object-fit: cover;
   border: 5px solid var(--primary-color);
-  animation: float 3s ease-in-out infinite;
+  box-shadow: 0 20px 40px rgba(0, 212, 255, 0.2); /* Added shadow for depth */
 }
 
 .about-text h3 {
@@ -445,9 +446,10 @@ body {
 }
 
 .about-text p {
-  font-size: 1.1rem;
-  margin-bottom: 2rem;
-  color: var(--text-secondary);
+    text-align: justify; /* This fixes the uneven right edge */
+    margin-bottom: 1.5rem; /* Adds consistent spacing between paragraphs */
+    color: var(--text-secondary); /* Ensures legibility against the dark background */
+    line-height: 1.8; /* Improves readability */
 }
 
 .about-details {
@@ -897,9 +899,11 @@ body {
     gap: 2rem;
   }
 
+@media (max-width: 768px) {
   .profile-img {
-    width: 250px;
-    height: 250px;
+    width: 300px;  /* Smaller size for mobile devices */
+    height: 300px;
+    margin: 0 auto;
   }
 
   /* Mobile-optimized form layout */
