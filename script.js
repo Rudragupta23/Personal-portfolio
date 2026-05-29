@@ -125,8 +125,8 @@ navLinks.forEach((link) => {
 function downloadResume() {
   // Create a temporary link element
   const link = document.createElement("a")
-  link.href = "latest_cv.pdf" 
-  link.download = "latest_cv.pdf"
+  link.href = "Rudra_cv.pdf" 
+  link.download = "Rudra_cv.pdf"
   document.body.appendChild(link)
   link.click()
   document.body.removeChild(link)
