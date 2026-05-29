@@ -39,7 +39,7 @@ This project is my personal portfolio, designed to be a central hub for my profe
 |-- index.html
 |-- me_tekri.jpg
 |-- me.jpg
-|-- latest_cv.pdf
+|-- Rudra_cv.pdf
 |-- package.json
 |-- script.js
 |-- styles.css
