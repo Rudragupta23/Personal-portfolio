@@ -62,9 +62,19 @@ body {
 }
 
 .nav-logo h2 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   color: var(--primary-color);
   cursor: pointer;
   transition: transform 0.3s ease;
+  font-weight: 700;
+}
+
+.code-icon {
+  font-size: 30px;
+  font-weight: 900;
+  letter-spacing: -3px;
 }
 
 .nav-logo h2:hover {
