@@ -44,7 +44,7 @@ This project is my personal portfolio, designed to be a central hub for my profe
 |-- script.js
 |-- styles.css
 ```
-### Installation
+### Installation:
 
 1.  Clone the repository:
     ```sh
