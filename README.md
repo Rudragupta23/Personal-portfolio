@@ -1,5 +1,5 @@
 # Rudra Gupta - Personal Portfolio
-A clean, modern, and responsive personal portfolio website to showcase my skills, projects, and journey as a web developer.
+A clean, modern and responsive personal portfolio website to showcase my skills, projects and journey as a web developer.
 <br>
 Website link - [www.rudraguptaportfolio.live](https://rudraguptaportfolio.live/)
 
