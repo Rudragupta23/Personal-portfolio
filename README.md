@@ -24,7 +24,7 @@ This project is my personal portfolio, designed to be a central hub for my profe
 
 **Client:** HTML, JavaScript, CSS
 
-**Libraries:** Font Awesome (for icons)
+**Libraries:** Font (for icons)
 
 **Deployment:** Netlify
 
