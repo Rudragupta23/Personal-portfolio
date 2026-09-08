@@ -8,7 +8,7 @@ This project is my personal portfolio, designed to be a central hub for my profe
 
 ### About project:
 <ul>
-<li>Multi-Section Layout: Includes Home, About, Education, Skills, Projects, and Contact sections for easy navigation.</li>
+<li>Multi-Section Layout: Includes Home, About, Education, Skills, Projects and Contact sections for easy navigation.</li>
 
 <li>Dark/Light Theme: A theme toggle allows users to switch between light and dark modes for better viewing comfort.</li>
 
