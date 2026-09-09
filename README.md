@@ -14,7 +14,7 @@ This project is my personal portfolio, designed to be a central hub for my profe
 
 <li>Fully Responsive: The layout adapts seamlessly to various screen sizes, from mobile devices to desktops.</li>
 
-<li>Interactive UI: Features smooth scrolling, hover effects, and animations to create an engaging user experience.</li>
+<li>Interactive UI: Features smooth scrolling, hover effects and animations to create an engaging user experience.</li>
 
 <li>Functional Contact Form: A working contact form using Web3Forms to allow visitors to get in touch easily.</li>
 
