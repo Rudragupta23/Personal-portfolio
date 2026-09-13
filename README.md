@@ -16,7 +16,7 @@ This project is my personal portfolio, designed to be a central hub for my profe
 
 <li>Interactive UI: Features smooth scrolling, hover effects and animations to create an engaging user experience.</li>
 
-<li>Functional Contact Form: A working contact form using Web3Forms to allow visitors to get in touch easily.</li>
+<li>Functional Contact Form: A working contact form using Web3Forms to allow users to get in touch easily.</li>
 
 <li>Project Showcase: A dedicated section to display my key projects with links to live demos and GitHub repositories.</li>
 
