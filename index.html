@@ -1,352 +1,324 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rudra Gupta - Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rudra Gupta - Full Stack Developer</title>
+<meta name="description" content="Full stack developer and CS undergraduate at VIT. React, Node, Django and MongoDB.">
+<meta name="author" content="Rudra Gupta">
+<meta name="theme-color" content="#FF6B00">
+<link rel="canonical" href="https://rudraguptaportfolio.live">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Rudra Gupta - Full Stack Developer">
+<meta property="og:description" content="Full stack developer and CS undergraduate at VIT.">
+<meta property="og:url" content="https://rudraguptaportfolio.live">
+<meta property="og:image" content="assets/img/rudra-bengaluru.jpg">
+<meta property="og:locale" content="en_IN">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Rudra Gupta - Full Stack Developer">
+<meta name="twitter:description" content="Full stack developer and CS undergraduate at VIT.">
+<meta name="twitter:image" content="assets/img/rudra-bengaluru.jpg">
+
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/sections.css">
 </head>
-<body>
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo" onclick="location.reload()">
-            <h2>
-                <span class="code-icon">&lt;/&gt;</span> RUDRA GUPTA
-            </h2>
-            </div>
-            <!-- Added mobile menu toggle button -->
-            <div class="mobile-menu-toggle" id="mobile-menu-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <!-- Added mobile-menu class for better mobile navigation -->
-            <div class="nav-menu" id="nav-menu">
-                <a href="#home" class="nav-link active" data-section="home">Home</a>
-                <a href="#about" class="nav-link" data-section="about">About</a>
-                <a href="#education" class="nav-link" data-section="education">Education</a>
-                <a href="#skills" class="nav-link" data-section="skills">Skills</a>
-                <a href="#projects" class="nav-link" data-section="projects">Projects</a>
-                <a href="#contact" class="nav-link" data-section="contact">Contact</a>
-                <div class="theme-toggle" id="theme-toggle">
-                    <i class="fas fa-moon"></i>
-                </div>
-            </div>
-        </div>
+
+<body id="top">
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div id="preloader" aria-hidden="true">
+  <div class="pre-mark">
+    <span>RUDRA GUPTA</span>
+    <div class="pre-bar"><i></i></div>
+  </div>
+</div>
+
+<div id="progress" aria-hidden="true"></div>
+<div id="cursor-ring" aria-hidden="true"><span>view</span></div>
+<div id="cursor" aria-hidden="true"></div>
+
+<!-- ================= NAV ================= -->
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top" aria-label="Rudra Gupta, back to top">
+      <span class="brand-mark" aria-hidden="true">RG</span>
+      <span class="brand-name">Rudra <b>Gupta</b></span>
+    </a>
+
+    <nav class="nav-links" id="nav-links" aria-label="Sections">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#credentials">Credentials</a>
+      <a href="#contact">Contact</a>
     </nav>
 
-    <section id="home" class="section active">
-        <div class="home-container">
-            <div class="home-content">
-                <div class="home-text">
-                    <h1 class="home-title">Hi, I'm <span class="highlight">Rudra Gupta </span></h1>
-                    <p class="home-subtitle">I am a passionate <span class="typewriter-text"></span><span class="cursor">|</span></p>
-                    <div class="home-buttons">
-                        <button class="btn btn-primary" onclick="downloadResume()">
-                            <i class="fas fa-download"></i> Download CV 
-                        </button>
-                        <button class="btn btn-secondary" onclick="openLinkedIn()">
-                            <i class="fab fa-linkedin"></i> Visit LinkedIn
-                        </button>
-                    </div>
-                    <div class="social-links">
-                        <a href="https://github.com/Rudragupta23" target="_blank" class="social-link">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="https://www.youtube.com/@rudrag05" target="_blank" class="social-link">
-                            <i class="fab fa-youtube"></i>
-                        </a>
-                        <a href="https://www.instagram.com/rud.ra_23/" target="_blank" class="social-link">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                    </div>
-                    <div class="copyright">
-                        <p>&copy; 2026 Rudra Gupta. All rights reserved.</p>
-                    </div>
-                </div>
-                <div class="home-image">
-                    <div class="profile-container">
-                        <img src="me_tekri.jpg" alt="Rudra Gupta" class="home-profile-img">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <div class="nav-actions">
+      <button class="icon-btn" id="theme-toggle" type="button" aria-label="Switch to dark mode"
+              onclick="window.setTheme(document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark')">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      </button>
 
-    <section id="about" class="section">
-        <div class="container">
-            <h2 class="section-title">About <span class="highlight">Me</span></h2>
-            <div class="about-content">
-                <div class="about-image">
-                    <img src="me.jpg" alt="Rudra Gupta" class="profile-img">
-                </div>
-<div class="about-text">
-    <h3>Full-Stack Developer & Tech Enthusiast</h3>
-
-    <p>
-        Hello! I'm <span class="highlight">Rudra Gupta</span>, a Final year 
-        B.Tech Computer Science student at VIT Bhopal University. 
-        I specialize in building and deploying production-grade web applications using the MERN stack and Django.
-    </p>
-
-    <p>
-        My hands-on experience includes engineering secure role-based systems, integrating third-party APIs for payments and cloud storage, and delivering end-to-end features. I have successfully launched live platforms, including a comprehensive educational portal, an NGO platform, and a train travel service system.
-    </p>
-
-    <p>
-        Backed by strong fundamentals in Data Structures & Algorithms and AWS, I am passionate about writing clean code, solving complex real-world problems, and continuously exploring new technologies.
-    </p>
-
-    <div class="about-details">
-        <div class="detail-item">
-            <strong>Education:</strong> B.Tech CSE, VIT Bhopal University
-        </div>
-
-        <div class="detail-item">
-            <strong>Email:</strong> 23rudragupta@gmail.com
-        </div>
-
-        <div class="detail-item">
-            <strong>Languages:</strong> English, Hindi, Punjabi
-        </div>
+      <button class="icon-btn nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="drawer" aria-label="Open menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
     </div>
+  </div>
+</header>
+
+<nav class="drawer" id="drawer" aria-label="Mobile menu">
+  <a href="#about">About<span>01</span></a>
+  <a href="#skills">Skills<span>02</span></a>
+  <a href="#projects">Projects<span>03</span></a>
+  <a href="#experience">Experience<span>04</span></a>
+  <a href="#credentials">Credentials<span>05</span></a>
+  <a href="#activity">Activity<span>06</span></a>
+  <a href="#contact">Contact<span>07</span></a>
+  <div class="drawer-cta">
+    <a class="btn btn--ghost" href="assets/resume/Rudra-Gupta-Resume.pdf" download="Rudra-Gupta-Resume.pdf">Download resume</a>
+    <a class="btn btn--primary" href="#contact">Let's connect</a>
+  </div>
+</nav>
+
+<main id="main">
+
+  <!-- ================= HERO ================= -->
+  <section class="hero" id="hero">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="hero-bloom" aria-hidden="true"></div>
+    <div id="glow" aria-hidden="true"></div>
+
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <span class="hero-eyebrow" id="hero-eyebrow"></span>
+        <h1 id="hero-title"></h1>
+        <p class="lead hero-intro" id="hero-intro"></p>
+
+        <div class="hero-cta">
+          <a class="btn btn--primary" href="#projects">
+            See what I've built
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="btn btn--ghost" href="assets/resume/Rudra-Gupta-Resume.pdf" download="Rudra-Gupta-Resume.pdf">
+            Download resume
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 11l5 5 5-5M4 20h16"/></svg>
+          </a>
+        </div>
+
+        <div class="hero-socials" id="hero-socials"></div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="term-shell">
+        <div class="float-card float-card--a" aria-hidden="true">
+          <b>9.15</b><span>CGPA · VIT</span>
+        </div>
+        <!-- The terminal is real. Type into it. -->
+        <div class="terminal" id="terminal">
+          <div class="term-bar">
+            <div class="term-dots" aria-hidden="true"><i></i><i></i><i></i></div>
+            <span class="term-title">neural terminal v1.0.4</span>
+          </div>
+          <div class="term-body" id="term-body" role="log" aria-live="polite" aria-label="Terminal output"></div>
+          <div class="term-prompt-row">
+            <span class="term-user" aria-hidden="true">rudra@system:~$</span>
+            <label class="sr-only" for="term-input">Terminal command</label>
+            <input class="term-input" id="term-input" type="text" autocomplete="off"
+                   autocapitalize="off" autocorrect="off" spellcheck="false"
+                   placeholder="type help and press Enter">
+          </div>
+        </div>
+        </div>
+
+        <div class="term-chips">
+          <button class="term-chip" type="button" data-cmd="help">help</button>
+          <button class="term-chip" type="button" data-cmd="whoami">whoami</button>
+          <button class="term-chip" type="button" data-cmd="skills">skills</button>
+          <button class="term-chip" type="button" data-cmd="projects">projects</button>
+          <button class="term-chip" type="button" data-cmd="status">status</button>
+          <button class="term-chip" type="button" data-cmd="contact">contact</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SNAPSHOT ================= -->
+  <section class="snapshot" id="snapshot" aria-label="Quick facts">
+    <div class="wrap">
+      <div class="snap-grid" id="snap-grid"></div>
+    </div>
+  </section>
+
+  <!-- ================= ABOUT ================= -->
+  <section class="section" id="about">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="section-mark">About</span>
+        <h2>I'd rather ship something small that works than demo something big that doesn't.</h2>
+      </div>
+      <div class="about-grid">
+        <figure class="about-photo reveal" id="about-photo"></figure>
+        <div class="about-body reveal" id="about-body"></div>
+      </div>
+      <dl class="focus-list" id="about-focus"></dl>
+    </div>
+  </section>
+
+  <!-- ================= SKILLS ================= -->
+  <section class="section section--tint" id="skills">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="section-mark">Technical skills</span>
+        <h2>The stack, and what I actually use each part for.</h2>
+        <p>No percentage bars. Every technology here appears in at least one shipped project.</p>
+      </div>
+      <div id="skills-wrap"></div>
+    </div>
+  </section>
+
+  <!-- ================= PROJECTS ================= -->
+  <section class="section section--warm" id="projects">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="section-mark">Selected projects</span>
+        <h2>Four things I built, and what broke along the way.</h2>
+        <p>Click any card for the full case study - the problem, the architecture, and the part that took longest.</p>
+      </div>
+      <div class="projects-list" id="projects-list"></div>
+    </div>
+  </section>
+
+  <!-- ================= EXPERIENCE ================= -->
+  <section class="section" id="experience">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="section-mark">Experience</span>
+        <h2>Where I'm working.</h2>
+      </div>
+      <div id="experience-wrap"></div>
+    </div>
+  </section>
+
+  <!-- ================= CREDENTIALS ================= -->
+  <section class="section section--tint" id="credentials">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="section-mark">Certifications</span>
+        <h2>Formal credentials.</h2>
+      </div>
+      <div class="cert-grid" id="cert-grid"></div>
+
+
+    </div>
+  </section>
+
+  <!-- ================= ACTIVITY ================= -->
+  <section class="section" id="activity">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="section-mark">Building in public</span>
+        <h2>Code and practice, out in the open.</h2>
+        <p>GitHub numbers below are pulled live from the public API when the page loads.</p>
+      </div>
+      <div class="coding-grid" id="coding-grid"></div>
+    </div>
+  </section>
+
+  <!-- ================= RESUME ================= -->
+  <section class="section" id="resume">
+    <div class="wrap">
+      <div class="resume-band reveal">
+        <div id="resume-copy"></div>
+        <div class="resume-preview" id="resume-preview"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CONTACT ================= -->
+  <section class="section section--warm" id="contact">
+    <div class="wrap contact-grid">
+      <div class="contact-lead reveal" id="contact-lead"></div>
+
+      <form class="contact-form reveal" id="contact-form" novalidate>
+        <div class="form-row">
+          <div class="field">
+            <label for="f-name">Your name</label>
+            <input id="f-name" name="name" type="text" placeholder="Enter your name" required>
+            <span class="field-error"></span>
+          </div>
+          <div class="field">
+            <label for="f-email">Email</label>
+            <input id="f-email" name="email" type="email" placeholder="Enter your email" required>
+            <span class="field-error"></span>
+          </div>
+        </div>
+        <div class="field">
+          <label for="f-subject">Subject</label>
+          <input id="f-subject" name="subject" type="text" placeholder="Internship opportunity" required>
+          <span class="field-error"></span>
+        </div>
+        <div class="field">
+          <label for="f-message">Message</label>
+          <textarea id="f-message" name="message" placeholder="Tell me a bit about the role or the idea." required></textarea>
+          <span class="field-error"></span>
+        </div>
+
+        <!-- Web3Forms spam trap: bots fill this, humans never see it -->
+        <input type="checkbox" name="botcheck" class="sr-only" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+        <div class="form-status" id="form-status" role="status"></div>
+
+        <button class="btn btn--primary btn--block" id="form-submit" type="submit">
+          Send message
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+
+        <p class="form-note">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;margin-top:2px"><path d="M20 6 9 17l-5-5"/></svg>
+          This form is live - messages go straight to my inbox. I reply within a day.
+        </p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-top" id="footer-top"></div>
+    <div class="footer-bottom" id="footer-bottom"></div>
+  </div>
+</footer>
+
+<!-- ================= PROJECT MODAL ================= -->
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true">
+  <div class="modal-scrim" id="modal-scrim"></div>
+  <div class="modal-panel">
+    <button class="modal-close" id="modal-close" type="button" aria-label="Close project details">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6 18 18M18 6 6 18"/></svg>
+    </button>
+    <div id="modal-content"></div>
+  </div>
 </div>
-            </div>
-        </div>
-    </section>
 
-    <section id="education" class="section">
-        <div class="container">
-            <h2 class="section-title">My <span class="highlight">Journey</span></h2>
-            <div class="education-content">
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <h3>B.Tech in Computer Science</h3>
-                            <h4>VIT Bhopal University</h4>
-                            <span class="timeline-date">August 2023 - ongoing</span>
-                            <span class="timeline-grade">CGPA: 9.15</span>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <h3>Class 12th (Science)</h3>
-                            <h4>Govt Model Sanskriti Senior Secondary School</h4>
-                            <span class="timeline-date">May 2023</span>
-                            <span class="timeline-grade">Percentage: 80.8%</span>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <h3>Class 10th</h3>
-                            <h4>St. Thomas School</h4>
-                            <span class="timeline-date">May 2021</span>
-                            <span class="timeline-grade">Percentage: 95.4%</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="skills" class="section">
-        <div class="container">
-            <h2 class="section-title">My <span class="highlight">Skills</span></h2>
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <h3>Frontend</h3>
-                    <p>HTML5, CSS, JavaScript, React.js, TypeScript, Tailwind CSS</p>
-                </div>
-                <div class="skill-card">
-                    <h3>Backend</h3>
-                    <p>Node.js, Express.js, Django, REST APIs</p>
-                </div>
-                <div class="skill-card">
-                    <h3>Languages</h3>
-                    <p>Java, C, C++, Python</p>
-                </div>
-                <div class="skill-card">
-                    <h3>Cloud</h3>
-                    <p>Amazon Web Services (AWS)</p>
-                </div>
-                <div class="skill-card">
-                    <h3>Core CS</h3>
-                    <p>Data Structures & Algorithms, OOPs</p>
-                </div>
-                <div class="skill-card">
-                    <h3>DevOps & Tools</h3>
-                    <p>Git, Docker, AWS, Vercel, Onrender</p>
-                </div>
-                <div class="skill-card">
-                    <h3>Databases</h3>
-                    <p>MySQL, SQLite, MongoDB, PostgreSQL</p>
-                </div>
-                <div class="skill-card">
-        <h3>Certifications</h3>
-        <p>NPTEL Elite (ML), Cisco Networking, Google Coursera (Networking)</p>
-    </div>
-    <div class="skill-card">
-        <h3>Achievements</h3>
-        <p>SolVIT Hackathon 2025 Participant, Maintained 9.0+ CGPA</p>
-    </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="projects" class="section">
-        <div class="container">
-            <h2 class="section-title">Personal <span class="highlight">Projects</span></h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-icon">
-                        <i class="fas fa-code"></i>
-                    </div>
-                    <h3>Pahal Foundation Website</h3>
-                    <p>Developed a comprehensive web platform for Pahal Foundation, an NGO empowering underprivileged children. Features secure backend, cloud storage, payment integration, and various user dashboards.</p>
-                    <div class="project-tech">
-                        <em>Tech: HTML, CSS, JS, Python (Django), MySQL, AWS S3, Razorpay</em>
-                    </div>
-                    <div class="project-buttons">
-                       <a href="https://pahalfoundationvitb.onrender.com/" target="_blank" class="project-btn project-btn-secondary">
-                            <i class="fas fa-external-link-alt"></i> View Live Site
-                        </a>
-                        <a href="https://github.com/Rudragupta23/PahalFoundation" target="_blank" class="project-btn project-btn-primary">
-                            <i class="fab fa-github"></i> View on GitHub
-                        </a>
-
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-icon">
-                        <i class="fas fa-train"></i>
-                    </div>
-                    <h3>Yatra Saral Website</h3>
-                    <p>An advanced, feature-rich web application designed to revolutionize the train travel experience in India. Yatra Saral provides a seamless, intuitive, and all-in-one platform for booking tickets, planning detailed journeys, and accessing a comprehensive suite of on-the-go services.</p>
-                    <div class="project-tech">
-                        <em>Tech: React.js, TypeScript, Node.js, MongoDB, Tailwind CSS</em>
-                    </div>
-                    <div class="project-buttons">
-                       <a href="https://yatrasaral.onrender.com/" target="_blank" class="project-btn project-btn-secondary">
-                            <i class="fas fa-external-link-alt"></i> View Live Site
-                        </a>
-                        <a href="https://github.com/Rudragupta23/Yatra-Saral-Web-Application" target="_blank" class="project-btn project-btn-primary">
-                            <i class="fab fa-github"></i> View on GitHub
-                        </a>
-                    </div>
-                </div>
-                     <div class="project-card">
-                     <div class="project-icon">
-                        <i class="fas fa-hand-paper"></i>
-                    </div>
-                    <h3>FFCS Planner-VITB</h3>
-                    <p>A web application designed to help VIT Bhopal students plan their course schedules during the FFCS registration.</p>
-                    <div class="project-tech">
-                        <em>Tech:HTML5, CSS, JS</em>
-                    </div>
-                    <div class="project-buttons">
-                        <a href="https://ffcsplannervitb.vercel.app/" target="_blank" class="project-btn project-btn-secondary">
-                            <i class="fas fa-external-link-alt"></i> View Live Site
-                        </a>
-                        <a href="https://github.com/Rudragupta23/FFCS-PLANNER-VITB" target="_blank" class="project-btn project-btn-primary">
-                            <i class="fab fa-github"></i> View on GitHub
-                        </a>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-icon">
-                        <i class="fas fa-database"></i>
-                    </div>
-                    <h3>Track My Spend – Expense Tracker</h3>
-                    <p>Built a desktop app to simplify expense tracking for students with a Tkinter GUI, WhatsApp integration via Twilio, and data visualization with machine learning predictions.</p>
-                    <div class="project-tech">
-                        <em>Tech: Python (Tkinter), MySQL, Pandas, Twilio API, Matplotlib, SMTP</em>
-                    </div>
-                    <div class="project-buttons">
-                        <a href="https://github.com/Rudragupta23/TrackMySpend-ExpenseTracker" target="_blank" class="project-btn project-btn-primary">
-                            <i class="fab fa-github"></i> View on GitHub
-                        </a>
-                    </div>
-                </div>
-
-
-                <div class="project-card">
-                    <div class="project-icon">
-                        <i class="fas fa-hand-paper"></i>
-                    </div>
-                    <h3>Gesture-Control-System</h3>
-                    <p>An advanced Python application that transforms your webcam into a futuristic gesture-based remote control for your computer. Control volume, media, mouse clicks, and more, all with simple hand signs.</p>
-                    <div class="project-tech">
-                        <em>Tech:Python, OpenCV</em>
-                    </div>
-                    <div class="project-buttons">
-                        <a href="https://github.com/Rudragupta23/Gesture-Control-System" target="_blank" class="project-btn project-btn-primary">
-                            <i class="fab fa-github"></i> View on GitHub
-                        </a>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-icon">
-                        <i class="fas fa-video"></i>
-                    </div>
-                    <h3>Decision Review System (DRS)</h3>
-                    <p>Simulated a real-world cricket DRS system using Python (Tkinter) to visualize ball tracking and review decisions with video playback controls and engaging UI animations.</p>
-                    <div class="project-tech">
-                        <em>Tech: Python (Tkinter), OpenCV, Pillow, Imutils</em>
-                    </div>
-                    <div class="project-buttons">
-                        <a href="https://github.com/Rudragupta23/Decision-Review-System-DRS" target="_blank" class="project-btn project-btn-primary">
-                            <i class="fab fa-github"></i> View on GitHub
-                        </a>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-    <section id="contact" class="section">
-    <div class="container">
-        <h2 class="section-title">Contact <span class="highlight">Me</span></h2>
-        <div class="contact-content">
-            <form class="contact-form" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
-                <input type="hidden" name="access_key" value="0b1e68ec-80de-43c6-b093-afa63e79425d">
-
-                <input type="hidden" name="subject" value="New Contact Form Submission from Your Portfolio">
-                <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
-
-                <div class="form-row">
-                    <div class="form-group">
-                        <input type="text" id="fullName" name="name" placeholder="Full Name" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" id="email" name="email" placeholder="Email Address" required>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <input type="tel" id="mobile" name="mobile" placeholder="Mobile Number" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" id="subject" name="email_subject" placeholder="Email Subject" required>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <textarea id="message" name="message" placeholder="Your Message" rows="6" required></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary submit-btn">
-                    <i class="fas fa-paper-plane"></i> Submit
-                </button>
-            </form>
-            <div id="form-result" style="margin-top: 1rem; text-align: center; font-weight: 600;"></div>
-        </div>
-    </div>
-</section>
-    <script src="script.js"></script>
+<script src="js/data.js"></script>
+<script src="js/terminal.js"></script>
+<script src="js/render.js"></script>
+<script src="js/app.js"></script>
 </body>
 </html>
