@@ -1,178 +1,118 @@
-# Rudra Gupta - Developer Portfolio
+# Rudra Gupta - Personal Portfolio
 
-A hand-built portfolio site. No framework, no build step, no template.
-Open `index.html` in a browser and it runs.
+A dynamic, fully responsive personal portfolio website showcasing full-stack development projects, technical skills, and professional experience. The platform features a unique, interactive command-line terminal, a custom dark/light theme toggle, and a data-driven rendering architecture built entirely with Vanilla JavaScript, HTML5, and CSS3. 
 
----
-
-## Run it
-
-**Easiest:** double-click `index.html`.
-
-**Better (so the resume download and fonts behave exactly as they will live):**
-
-```bash
-cd rudra-portfolio
-python3 -m http.server 8000
-# then open http://localhost:8000
-```
+**Live URL:** [https://rudraguptaportfolio.live/](https://rudraguptaportfolio.live/)
 
 ---
 
-## Everything you edit lives in one file
+## 🚀 Core Features
 
-`js/data.js`
-
-Your name, headline, skills, projects, experience, certifications, links -
-all of it. The HTML never contains your personal information, so you never
-have to hunt through markup to change a sentence.
-
-### One optional extra
-
-`certifications[].credentialUrl` - paste a verification link and a
-**Verify** button appears on that card. Left empty, no link is shown.
-Nothing fake is ever displayed.
-
-Everything else is wired: all eight certifications, all four projects with
-their live URLs and repos, and a working contact form.
+* **Interactive Terminal (RudraOS v4.0.0):** A fully functional command-line interface embedded in the hero section. Users can type commands like `whoami`, `projects`, `skills`, `clear`, and `secret` to explore the portfolio through a developer-centric lens.
+* **Data-Driven Architecture:** The entire portfolio's content (projects, skills, experience, and contact details) is decoupled from the UI. The `data.js` file acts as a local CMS, which is injected into the DOM at runtime via `render.js`.
+* **Live GitHub Statistics:** Automatically fetches and displays real-time GitHub repository and follower counts using the public GitHub API.
+* **Theming & Accessibility:** Includes a seamless dark/light mode toggle managed by CSS variables and preserved via `localStorage`. The site also respects `prefers-reduced-motion` system settings for animations.
+* **Functional Contact Form:** Integrates with the Web3Forms API to process contact submissions and send them directly to the author's inbox, complete with client-side validation.
+* **Custom Interactions:** Features custom cursor tracking for desktop users and scroll-triggered reveal animations utilizing the `IntersectionObserver` API.
 
 ---
 
-## The contact form is live
+## 🛠️ Built With (Portfolio Tech Stack)
 
-It posts to **Web3Forms** using the access key in `js/data.js`:
+Unlike the full-stack projects featured within it, this portfolio is built deliberately without heavy frameworks to ensure maximum performance and complete control over the UI/UX:
 
-```js
-contact: {
-  formEndpoint: "https://api.web3forms.com/submit",
-  formAccessKey: "0b1e68ec-80de-43c6-b093-afa63e79425d",
-}
-```
-
-Messages land in the inbox that key is registered to. Validation, loading,
-success and error states are all handled, and there's a hidden `botcheck`
-honeypot field that Web3Forms uses to drop spam. To send somewhere else,
-get a new key at [web3forms.com](https://web3forms.com) and swap that one line.
+* **HTML5:** Semantic markup with strict accessibility considerations and ARIA attributes.
+* **CSS3:** Built entirely with custom CSS. Utilizes native CSS variables for the light/dark theme system, CSS Grid/Flexbox for responsive layouts, and pure CSS for keyframe animations (like the terminal cursor and preloader).
+* **Vanilla JavaScript (ES6+):** Uses modern browser APIs like `IntersectionObserver` for scroll reveals, `matchMedia` for hover/pointer detection, and dynamic DOM manipulation to inject content.
+* **Web3Forms API:** Handles the serverless contact form submissions without requiring a backend.
 
 ---
 
-## The terminal
+## 💻 Terminal Commands Reference
 
-The hero terminal is a real command line, not an animation. Try:
+The hero section features a custom-built, interactive command-line interface. Visitors can explore the portfolio using the following commands:
 
-```
-help        every available command
-whoami      who you are
-skills      the stack, by category
-projects    numbered list with links
-open 2      opens that project's case study modal
-experience  current role
-education   degree and CGPA
-certs       certifications
-status      availability
-contact     email, phone, socials
-socials     every profile
-leetcode    opens your LeetCode profile
-github      opens your GitHub profile
-resume      downloads the PDF
-ls          site sections
-theme       toggle light / dark
-banner      reprint the boot header
-date        current time
-clear       wipe the screen
-secret      (there's something here)
-```
-
-Plus **Tab** to autocomplete, **↑ / ↓** for command history, and **Ctrl+L** to clear.
-
-The terminal stays a fixed height no matter how much output you generate -
-long results scroll inside it rather than stretching the page.
-
-Commands live in `js/terminal.js` inside the `COMMANDS` object. To add one:
-
-```js
-myCommand: {
-  desc: "shows up in help",
-  run() {
-    return [line("Hello", "head"), line("More text", "dim")];
-  },
-},
-```
-
-Line styles available: `head` `out` `dim` `good` `err` `boot` `ok` `hint`.
+* `help` - Lists all available commands.
+* `whoami` - Displays author introduction and education details.
+* `skills` - Outputs the technical stack categorized by domain.
+* `projects` - Lists all shipped projects. Use `open <number>` (e.g., `open 1`) to launch the full case study modal for a specific project.
+* `experience` - Details current and past professional roles.
+* `education` - Displays degree and university details.
+* `certs` - Lists professional certifications.
+* `status` - Shows current availability for internships or full-time roles.
+* `contact` / `socials` - Provides email, phone, and links to GitHub, LinkedIn, and LeetCode.
+* `leetcode` / `github` - Opens the respective profiles in a new tab.
+* `resume` - Triggers a direct download of the PDF resume.
+* `theme` - Toggles the site between light and dark modes.
+* `ls` - Lists the conceptual sections of the site.
+* `date` - Outputs the current local time.
+* `banner` - Prints the boot header again.
+* `clear` - Clears the terminal screen.
+* *Secret commands are also hidden within the source code for curious developers to find.*
 
 ---
 
-## File map
+## 🏗️ Featured Projects Built & Showcased
 
-```
-rudra-portfolio/
-├── index.html              semantic shell - sections render into it
-├── css/
-│   ├── base.css            design tokens, type scale, light + dark themes
-│   ├── components.css      nav, buttons, cards, terminal, modal, form, cursor
-│   └── sections.css        per-section layout + all responsive breakpoints
-├── js/
-│   ├── data.js             ← YOUR CONTENT. Edit this.
-│   ├── terminal.js         the command line
-│   ├── render.js           builds every section from data.js
-│   └── app.js              nav, scrollspy, theme, reveals, modal, form, cursor
-└── assets/
-    ├── img/                portrait, favicon, resume preview
-    │   └── projects/       the four project screenshots
-    └── resume/             Rudra-Gupta-Resume.pdf
-```
+The portfolio highlights several full-stack applications built by the author:
 
-To swap your resume: replace the PDF at `assets/resume/` keeping the same
-filename, or update `resume.file` in `js/data.js`.
+* **MathCom Mentors:** A multi-role learning platform for a London-based client, featuring isolated dashboards for admins, graders, students, and parents (React, Node.js, MongoDB, AWS S3).
+* **Pahal Foundation:** An NGO management system digitizing admissions, attendance, and Razorpay-verified donations (Django, Python, AWS S3).
+* **Healthcare Appointment Manager:** A clinic booking system featuring concurrency control and AI triage via the Gemini API, alongside Google Calendar synchronization (React, Node, Express, MongoDB).
+* **Yatra Saral:** An accessible train travel booking system tailored for elderly and low-literacy users (React, TypeScript, Node.js, Express, MongoDB).
 
 ---
 
-## Deploying
+## 📁 Codebase Structure
 
-### Netlify (simplest - no account setup needed to try)
-Go to [app.netlify.com/drop](https://app.netlify.com/drop) and drag the
-`rudra-portfolio` folder onto the page. Live in about ten seconds.
+The project is structured without complex build tools, relying on clean, modular vanilla web technologies:
 
-### Vercel
-```bash
-npm i -g vercel
-cd rudra-portfolio
-vercel
-```
-Accept the defaults. It's a static site, so there's no build command.
-
-### GitHub Pages
-1. Push this folder to a repo.
-2. Settings → Pages → Source: `main` branch, `/ (root)`.
-3. Live at `https://rudragupta23.github.io/<repo>`.
-
-### Your own domain (rudraguptaportfolio.live)
-Point the domain at whichever host above, then update `seo.url` in
-`js/data.js` and the `og:url` / `canonical` tags in `index.html`.
+* **`/index.html`**: The semantic skeleton of the application, establishing the layout, meta tags for SEO, and mounting points for dynamic content.
+* **`/css/`**: Modular stylesheet architecture.
+  * `base.css`: CSS variables (light/dark tokens), typography resets, and global layout primitives.
+  * `components.css`: Styling for reusable UI elements like buttons, navbars, modals, the custom cursor, and the terminal.
+  * `sections.css`: Specific grid layouts and styling for individual page sections (Hero, About, Projects, Experience, etc.).
+* **`/js/`**: Separation of concerns for logic and content.
+  * `data.js`: The centralized data object (`PORTFOLIO`) containing all personal details, project metrics, and configuration.
+  * `render.js`: DOM generation functions that map data from `data.js` into HTML structures and inject JSON-LD.
+  * `terminal.js`: The CLI engine parsing user input, managing history, and executing commands.
+  * `app.js`: Core initialization, event listeners, form validation, theme toggling, and scroll tracking.
+* **`/assets/`**: Contains images, favicons, and the downloadable PDF resume.
 
 ---
 
-## What's built in
+## ⚡ Performance & SEO Features
 
-- **Light and dark themes** with the orange identity intact in both, saved to `localStorage`.
-- **Live GitHub stats** - repo count, followers and join year are fetched from the public GitHub API at load. If the request fails the card degrades quietly instead of showing wrong numbers.
-- **Real project screenshots**, framed as browser windows showing each project's live domain. Swap an image by replacing the file in `assets/img/projects/` and updating `image` in `js/data.js`. Any project without an `image` falls back to hand-drawn inline SVG artwork.
-- **Accessibility** - semantic landmarks, skip link, visible focus rings, ARIA labels, a focus trap in the modal, keyboard-operable everything, and full `prefers-reduced-motion` support.
-- **SEO** - title, description, Open Graph, Twitter card, canonical link, and JSON-LD `Person` structured data.
-- **Performance** - zero dependencies, ~40KB of CSS and JS uncompressed, lazy-loaded images, one Google Fonts request.
-- **Responsive** from 320px to 1920px, verified with no horizontal overflow.
+* **Dynamic JSON-LD:** The `render.js` script automatically generates and injects Schema.org structured data (JSON-LD) into the document `<head>` to improve search engine understanding of the author's identity and alumni status.
+* **Lazy Loading:** All project images utilize `loading="lazy"` and `decoding="async"` attributes to ensure the initial page load is fast and efficient.
+* **Reduced Motion Support:** The `app.js` and `base.css` files actively check for the user's `prefers-reduced-motion` OS setting. If enabled, the site disables custom cursor tracking, disables scroll reveals, and instantly resolves the preloader.
 
 ---
 
-## Images
+## ⚙️ How to Customize (For Forkers)
 
-| File | Used for |
-|---|---|
-| `assets/img/rudra-bengaluru.jpg` | About section portrait |
-| `assets/img/projects/*.jpg` | Project cards |
-| `assets/img/resume-preview.jpg` | Resume section preview |
-| `assets/resume/Rudra-Gupta-Resume.pdf` | The actual download |
+The architecture of this portfolio separates the content entirely from the rendering logic, making it incredibly easy to adapt for your own use. 
 
-If you update your resume, replace **both** the PDF and
-`resume-preview.jpg` so the preview matches the file.
+1. **Edit the Data:** Open `js/data.js`. This file acts as the single source of truth. Update the `PORTFOLIO` object with your own name, bio, skills, projects, and experience. The site will automatically generate the UI based on this data.
+2. **Configure the Contact Form:** In `data.js`, locate the `contact` object. Generate a free API key from [Web3Forms](https://web3forms.com) and replace the `formAccessKey` string so messages route to your email. If left blank, the form gracefully falls back to opening the user's default `mailto:` client.
+3. **Update Assets:** Replace the images in the `assets/img/` directory and subdirectories, and drop your own PDF resume into `assets/resume/`.
+4. **Tweak the Theme:** Open `css/base.css` and adjust the `--o` (orange) and background color variables under the `:root` and `[data-theme="dark"]` selectors to match your personal branding.
+
+---
+
+## 💻 Local Setup
+
+1. Clone the repository to your local machine.
+2. No package manager (`npm`/`yarn`) or build step is required. 
+3. Open `index.html` directly in any modern web browser, or serve it via a local development server (e.g., VS Code Live Server) to ensure local API fetches (like the GitHub stats) run smoothly without CORS restrictions.
+
+---
+
+## 👤 Author
+
+**Rudra Gupta**
+* Full Stack Developer & B.Tech CSE Undergraduate at Vellore Institute of Technology
+* **GitHub:** [@Rudragupta23](https://github.com/Rudragupta23)
+* **LinkedIn:** [rudrag23](https://linkedin.com/in/rudrag23)
+* **LeetCode:** [Rudragupta23](https://leetcode.com/u/Rudragupta23/)
+* **Email:** [23rudragupta@gmail.com](mailto:23rudragupta@gmail.com)
