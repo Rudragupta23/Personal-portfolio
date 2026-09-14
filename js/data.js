@@ -1,18 +1,7 @@
-/* =====================================================================
-   PORTFOLIO DATA  -  edit this file only.
-   Every section of the site is generated from the object below.
-   Nothing here is invented: it all comes from your resume.
 
-   Optional extras (everything else is already wired up):
-   - certifications[].credentialUrl - add a verification link and a
-     "Verify" button appears on that card. Leave it "" and none shows.
-   Leave any field empty ("") and the site simply hides that element.
-   ===================================================================== */
 
 const PORTFOLIO = {
-  /* ---------------------------------------------------------------- */
   /* 1. IDENTITY                                                      */
-  /* ---------------------------------------------------------------- */
   person: {
     name: "Rudra Gupta",
     initials: "RG",
@@ -64,9 +53,7 @@ const PORTFOLIO = {
     text: "One page, no filler: experience, projects, education and the exact stack behind each of them.",
   },
 
-  /* ---------------------------------------------------------------- */
   /* 2. RECRUITER SNAPSHOT (straight from the resume)                 */
-  /* ---------------------------------------------------------------- */
   snapshot: [
     { value: "9.15", unit: "/10", label: "CGPA", note: "B.Tech CSE, VIT" },
     { value: "2027", unit: "",    label: "Graduating", note: "Sep 2023 - May 2027" },
@@ -74,9 +61,7 @@ const PORTFOLIO = {
     { value: "6",    unit: "",    label: "Certifications", note: "NPTEL, Oracle, Cisco, AWS" },
   ],
 
-  /* ---------------------------------------------------------------- */
   /* 3. ABOUT                                                         */
-  /* ---------------------------------------------------------------- */
   about: {
     paragraphs: [
       "I'm a final-year Computer Science undergraduate at Vellore Institute of Technology with a 9.15 CGPA, and a full-stack developer who has put four web platforms in front of real users. I work across the whole stack rather than one slice of it: React on the surface, Node, Express and Django behind it, MongoDB and MySQL underneath, and AWS when files need somewhere better to live than the app server.",
@@ -91,10 +76,7 @@ const PORTFOLIO = {
     ],
   },
 
-  /* ---------------------------------------------------------------- */
   /* 5. SKILLS  (exactly the resume list - no invented technologies)  */
-  /* ---------------------------------------------------------------- */
-  // Shown as a strip above the categories - the stack I default to.
   primaryStack: ["React.js", "Node.js", "Express.js", "MongoDB", "AWS S3", "Java"],
 
   skills: [
@@ -142,9 +124,7 @@ const PORTFOLIO = {
     },
   ],
 
-  /* ---------------------------------------------------------------- */
   /* 6. PROJECTS                                                      */
-  /* ---------------------------------------------------------------- */
   projects: [
     {
       id: "mathcom",
@@ -319,9 +299,7 @@ const PORTFOLIO = {
     },
   ],
 
-  /* ---------------------------------------------------------------- */
   /* 7. EXPERIENCE                                                    */
-  /* ---------------------------------------------------------------- */
   experience: [
     {
       role: "Full Stack Developer Intern",
@@ -340,9 +318,7 @@ const PORTFOLIO = {
     },
   ],
 
-  /* ---------------------------------------------------------------- */
   /* 8. CERTIFICATIONS                                                */
-  /* ---------------------------------------------------------------- */
   certifications: [
     {
       name: "Marketing Analytics",
@@ -394,11 +370,8 @@ const PORTFOLIO = {
     },
   ],
 
-  /* ---------------------------------------------------------------- */
   /* 10. CODING ACTIVITY                                              */
-  /*     GitHub numbers are fetched live from the public API at       */
-  /*     runtime. Nothing is hard-coded, so nothing can be wrong.     */
-  /* ---------------------------------------------------------------- */
+
   coding: {
     githubUser: "Rudragupta23",
     profiles: [
@@ -417,9 +390,7 @@ const PORTFOLIO = {
     ],
   },
 
-  /* ---------------------------------------------------------------- */
   /* 11. SEO                                                          */
-  /* ---------------------------------------------------------------- */
   seo: {
     title: "Rudra Gupta - Full Stack Developer",
     description:

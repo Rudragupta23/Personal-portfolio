@@ -1,9 +1,4 @@
-/* =====================================================================
-   TERMINAL - a real, working command line.
-   Commands: help whoami skills projects experience education certs
-             status contact socials leetcode github resume open
-             ls date theme banner clear secret sudo
-   ===================================================================== */
+
 
 (function () {
   "use strict";
@@ -11,9 +6,7 @@
   const D = window.PORTFOLIO;
   const OS_VERSION = "4.0.0";
 
-  /* ---------------------------------------------------------------- */
   /* Small helpers                                                    */
-  /* ---------------------------------------------------------------- */
   const esc = (s) =>
     String(s).replace(/[&<>"']/g, (c) =>
       ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c])
@@ -24,10 +17,7 @@
 
   const pad = (s, n) => esc(s) + " ".repeat(Math.max(0, n - String(s).length));
 
-  /* ---------------------------------------------------------------- */
-  /* Command implementations. Each returns an array of output lines:  */
-  /*   { cls: "out", html: "..." }  |  { cls: "spacer" }              */
-  /* ---------------------------------------------------------------- */
+
   const SP = { cls: "spacer", html: "" };
   const line = (html, cls) => ({ cls: cls || "out", html });
 
@@ -314,9 +304,7 @@
     },
   };
 
-  /* ---------------------------------------------------------------- */
   /* Boot sequence                                                    */
-  /* ---------------------------------------------------------------- */
   function bootLines() {
     return [
       line(`Initializing RudraOS v${OS_VERSION}...`, "boot"),
@@ -326,9 +314,7 @@
     ];
   }
 
-  /* ---------------------------------------------------------------- */
   /* Terminal instance                                                */
-  /* ---------------------------------------------------------------- */
   function createTerminal(root, opts) {
     opts = opts || {};
     const body = root.querySelector(".term-body");

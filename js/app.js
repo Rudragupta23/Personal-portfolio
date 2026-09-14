@@ -1,6 +1,3 @@
-/* =====================================================================
-   APP - behaviour: nav, theme, reveals, modal, cursor, form, terminal
-   ===================================================================== */
 
 (function () {
   "use strict";
@@ -10,14 +7,15 @@
   const $$ = (s, r) => Array.from((r || document).querySelectorAll(s));
   const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  /* ---------------------------------------------------------------- */
   /* Theme                                                            */
-  /* ---------------------------------------------------------------- */
   function setTheme(mode) {
     document.documentElement.dataset.theme = mode;
     try { localStorage.setItem("rg-theme", mode); } catch (e) {}
-    const btn = $("#theme-toggle");
-    if (btn) btn.setAttribute("aria-label", mode === "dark" ? "Switch to light mode" : "Switch to dark mode");
+    document.querySelectorAll("[data-theme-set]").forEach((b) => {
+      const on = b.dataset.themeSet === mode;
+      b.classList.toggle("is-active", on);
+      b.setAttribute("aria-pressed", String(on));
+    });
   }
   window.setTheme = setTheme;
 
@@ -27,9 +25,7 @@
     setTheme(saved || "light");
   })();
 
-  /* ---------------------------------------------------------------- */
   /* Boot                                                             */
-  /* ---------------------------------------------------------------- */
   let started = false;
 
   window.Render.all();
@@ -52,79 +48,34 @@
     initProjectHoverGlow();
   }
 
-  /* ---------------------------------------------------------------- */
   /* Preloader                                                        */
-  /* ---------------------------------------------------------------- */
   function initPreloader() {
     const pre = $("#preloader");
     if (!pre) return;
     const hide = () => pre.classList.add("done");
-    setTimeout(hide, reduced ? 60 : 850);
-    window.addEventListener("load", () => setTimeout(hide, 200));
+    setTimeout(hide, reduced ? 60 : 2200);
+    window.addEventListener("load", () => setTimeout(hide, reduced ? 60 : 2200));
   }
 
-  /* ---------------------------------------------------------------- */
-  /* Navigation: sticky state, scrollspy, drawer, progress            */
-  /* ---------------------------------------------------------------- */
+  /* Scroll progress bar                                              */
   function initNav() {
-    const nav = $("#nav");
     const bar = $("#progress");
-    const links = $$("#nav-links a, #drawer a[href^='#']");
-    const sections = $$("section[id]");
-
+    if (!bar) return;
     let ticking = false;
+
     function onScroll() {
-      const y = window.scrollY;
-      nav.classList.toggle("scrolled", y > 16);
-
       const h = document.documentElement.scrollHeight - window.innerHeight;
-      bar.style.width = (h > 0 ? (y / h) * 100 : 0) + "%";
-
-      let current = "";
-      const line = y + window.innerHeight * 0.28;
-      sections.forEach((s) => {
-        if (s.offsetTop <= line) current = s.id;
-      });
-      links.forEach((a) => {
-        a.classList.toggle("active", a.getAttribute("href") === "#" + current);
-      });
+      bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + "%";
       ticking = false;
     }
 
-    window.addEventListener(
-      "scroll",
-      () => {
-        if (!ticking) {
-          ticking = true;
-          requestAnimationFrame(onScroll);
-        }
-      },
-      { passive: true }
-    );
+    window.addEventListener("scroll", () => {
+      if (!ticking) { ticking = true; requestAnimationFrame(onScroll); }
+    }, { passive: true });
     onScroll();
-
-    /* drawer */
-    const toggle = $("#nav-toggle");
-    const drawer = $("#drawer");
-    function closeDrawer() {
-      drawer.classList.remove("open");
-      toggle.setAttribute("aria-expanded", "false");
-      document.body.style.overflow = "";
-    }
-    toggle.addEventListener("click", () => {
-      const open = drawer.classList.toggle("open");
-      toggle.setAttribute("aria-expanded", String(open));
-      document.body.style.overflow = open ? "hidden" : "";
-    });
-    $$("#drawer a").forEach((a) => a.addEventListener("click", closeDrawer));
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && drawer.classList.contains("open")) closeDrawer();
-    });
   }
 
-  /* ---------------------------------------------------------------- */
   /* Scroll reveal                                                    */
-  /* ---------------------------------------------------------------- */
   function initReveal() {
     const items = $$(".reveal");
     if (reduced || !("IntersectionObserver" in window)) {
@@ -145,9 +96,7 @@
     items.forEach((el) => io.observe(el));
   }
 
-  /* ---------------------------------------------------------------- */
   /* Project modal                                                    */
-  /* ---------------------------------------------------------------- */
   function initModal() {
     const modal = $("#modal");
     const panel = $("#modal-content");
@@ -194,7 +143,6 @@
     closeBtn.addEventListener("click", close);
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape" && modal.classList.contains("open")) close();
-      // simple focus trap
       if (e.key === "Tab" && modal.classList.contains("open")) {
         const f = $$('a[href], button, input, textarea, [tabindex]:not([tabindex="-1"])', modal)
           .filter((el) => el.offsetParent !== null);
@@ -206,9 +154,7 @@
     });
   }
 
-  /* ---------------------------------------------------------------- */
   /* Cursor-following glow on project cards                           */
-  /* ---------------------------------------------------------------- */
   function initProjectHoverGlow() {
     if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
     document.addEventListener("mousemove", (e) => {
@@ -220,9 +166,7 @@
     }, { passive: true });
   }
 
-  /* ---------------------------------------------------------------- */
   /* Contact form                                                     */
-  /* ---------------------------------------------------------------- */
   function initForm() {
     const form = $("#contact-form");
     if (!form) return;
@@ -312,9 +256,7 @@
     });
   }
 
-  /* ---------------------------------------------------------------- */
   /* Custom cursor                                                    */
-  /* ---------------------------------------------------------------- */
   function initCursor() {
     if (reduced) return;
     if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
@@ -352,9 +294,7 @@
     });
   }
 
-  /* ---------------------------------------------------------------- */
   /* Hero mouse glow                                                  */
-  /* ---------------------------------------------------------------- */
   function initGlow() {
     if (reduced) return;
     const glow = $("#glow");
@@ -382,9 +322,7 @@
     })();
   }
 
-  /* ---------------------------------------------------------------- */
   /* Terminal                                                         */
-  /* ---------------------------------------------------------------- */
   function initTerminal() {
     const root = $("#terminal");
     if (!root || !window.TerminalKit) return;

@@ -1,6 +1,4 @@
-/* =====================================================================
-   RENDER - every section below is generated from js/data.js
-   ===================================================================== */
+
 
 (function () {
   "use strict";
@@ -13,9 +11,7 @@
       ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c])
     );
 
-  /* ---------------------------------------------------------------- */
   /* Icons                                                            */
-  /* ---------------------------------------------------------------- */
   const I = {
     github: '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.73.5.9 5.33.9 11.6c0 4.9 3.18 9.06 7.59 10.53.56.1.76-.24.76-.53l-.01-1.88c-3.09.67-3.74-1.49-3.74-1.49-.5-1.29-1.23-1.63-1.23-1.63-1.01-.69.08-.67.08-.67 1.11.08 1.7 1.15 1.7 1.15.99 1.7 2.6 1.21 3.23.93.1-.72.39-1.21.7-1.49-2.47-.28-5.06-1.24-5.06-5.5 0-1.22.43-2.21 1.15-2.99-.12-.28-.5-1.42.11-2.95 0 0 .94-.3 3.07 1.14a10.6 10.6 0 0 1 5.59 0c2.13-1.44 3.07-1.14 3.07-1.14.61 1.53.23 2.67.11 2.95.72.78 1.15 1.77 1.15 2.99 0 4.27-2.6 5.21-5.08 5.49.4.34.76 1.02.76 2.06l-.01 3.06c0 .29.2.64.77.53 4.4-1.47 7.58-5.63 7.58-10.53C23.1 5.33 18.27.5 12 .5Z"/></svg>',
     linkedin: '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05a3.74 3.74 0 0 1 3.37-1.85c3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13ZM7.12 20.45H3.55V9h3.57v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0Z"/></svg>',
@@ -36,9 +32,7 @@
 
   const socialIcon = (id) => I[id] || I.ext;
 
-  /* ---------------------------------------------------------------- */
   /* HERO                                                             */
-  /* ---------------------------------------------------------------- */
   function renderHero() {
     const p = D.person;
     const head = (t) =>
@@ -59,9 +53,7 @@
       .join("");
   }
 
-  /* ---------------------------------------------------------------- */
   /* SNAPSHOT                                                         */
-  /* ---------------------------------------------------------------- */
   function renderSnapshot() {
     $("#snap-grid").innerHTML = D.snapshot
       .map(
@@ -75,9 +67,7 @@
       .join("");
   }
 
-  /* ---------------------------------------------------------------- */
   /* ABOUT                                                            */
-  /* ---------------------------------------------------------------- */
   function renderAbout() {
     $("#about-photo").innerHTML = `
       <img src="${esc(D.person.photo)}" alt="${esc(D.person.photoAlt)}" loading="lazy" width="880" height="1100">
@@ -96,9 +86,7 @@
       .join("");
   }
 
-  /* ---------------------------------------------------------------- */
   /* SKILLS                                                           */
-  /* ---------------------------------------------------------------- */
   function renderSkills() {
     const strip = D.primaryStack || [];
     $("#skills-wrap").innerHTML = `
@@ -136,9 +124,7 @@
         .join("")}`;
   }
 
-  /* ---------------------------------------------------------------- */
   /* PROJECTS                                                         */
-  /* ---------------------------------------------------------------- */
   function renderProjects() {
     $("#projects-list").innerHTML =
       D.projects
@@ -180,21 +166,24 @@
             <div class="project-visual${p.image ? " project-visual--mac" : ""}">${visual}</div>
           </article>`;
         })
-        .join("") +
-      `<aside class="projects-more reveal">
-         <div>
-           <h3>There's more on GitHub</h3>
-           <p>These four are the ones I'd want you to read about. The rest of what I've built - coursework, experiments and smaller tools - lives on my profile.</p>
-         </div>
-         <a class="btn btn--primary" href="https://github.com/Rudragupta23?tab=repositories" target="_blank" rel="noopener noreferrer">
-           View more projects ${I.github}
-         </a>
-       </aside>`;
+        .join("");
+
+    if (!document.querySelector('.projects-more')) {
+      $("#projects-list").insertAdjacentHTML('afterend',
+        `<aside class="projects-more reveal">
+           <div>
+             <h3>There's more on GitHub</h3>
+             <p>These four are the ones I'd want you to read about. The rest of what I've built - coursework, experiments and smaller tools - lives on my profile.</p>
+           </div>
+           <a class="btn btn--primary" href="https://github.com/Rudragupta23?tab=repositories" target="_blank" rel="noopener noreferrer">
+             View more projects ${I.github}
+           </a>
+         </aside>`
+      );
+    }
   }
 
-  /* ---------------------------------------------------------------- */
   /* PROJECT MODAL                                                    */
-  /* ---------------------------------------------------------------- */
   function projectModalHTML(p) {
     const live = p.links.live
       ? `<a class="btn btn--primary btn--sm" href="${esc(p.links.live)}" target="_blank" rel="noopener noreferrer">Live demo ${I.ext}</a>`
@@ -252,9 +241,7 @@
       </div>`;
   }
 
-  /* ---------------------------------------------------------------- */
   /* EXPERIENCE                                                       */
-  /* ---------------------------------------------------------------- */
   function renderExperience() {
     const el = $("#experience-wrap");
     if (!D.experience.length) {
@@ -282,9 +269,7 @@
       .join("");
   }
 
-  /* ---------------------------------------------------------------- */
   /* CERTIFICATIONS & FOUNDATIONS                                     */
-  /* ---------------------------------------------------------------- */
   function renderCerts() {
     $("#cert-grid").innerHTML = D.certifications
       .map(
@@ -302,9 +287,7 @@
       .join("");
   }
 
-  /* ---------------------------------------------------------------- */
   /* CODING ACTIVITY                                                  */
-  /* ---------------------------------------------------------------- */
   function renderCoding() {
     $("#coding-grid").innerHTML = D.coding.profiles
       .map(
@@ -347,9 +330,7 @@
       });
   }
 
-  /* ---------------------------------------------------------------- */
   /* RESUME + CONTACT + FOOTER                                        */
-  /* ---------------------------------------------------------------- */
   function renderResume() {
     $("#resume-copy").innerHTML = `
       <h2>${esc(D.resume.heading)}</h2>
@@ -441,9 +422,7 @@
       <a href="#top" class="footer-up">Back to top ${I.up}</a>`;
   }
 
-  /* ---------------------------------------------------------------- */
   /* SEO / head                                                       */
-  /* ---------------------------------------------------------------- */
   function renderMeta() {
     document.title = D.seo.title;
     const set = (sel, attr, val) => {
@@ -474,7 +453,6 @@
     document.head.appendChild(tag);
   }
 
-  /* ---------------------------------------------------------------- */
   window.Render = {
     all() {
       renderMeta();

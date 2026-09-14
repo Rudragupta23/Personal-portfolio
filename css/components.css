@@ -1,10 +1,6 @@
-/* =====================================================================
-   COMPONENTS - nav, buttons, cards, terminal, modal, form, cursor
-   ===================================================================== */
 
-/* ---------------------------------------------------------------- */
-/* Preloader                                                        */
-/* ---------------------------------------------------------------- */
+/* Preloader */
+
 #preloader {
   position: fixed; inset: 0; z-index: 300;
   display: grid; place-items: center;
@@ -34,9 +30,7 @@
 }
 @keyframes preFill { to { width: 100%; } }
 
-/* ---------------------------------------------------------------- */
 /* Scroll progress                                                  */
-/* ---------------------------------------------------------------- */
 #progress {
   position: fixed; top: 0; left: 0; height: 2px; width: 0;
   background: linear-gradient(90deg, var(--o-deep), var(--o-2));
@@ -44,152 +38,7 @@
   transition: width .1s linear;
 }
 
-/* ---------------------------------------------------------------- */
-/* Navigation                                                       */
-/* ---------------------------------------------------------------- */
-.nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 110;
-  transition: background-color .35s var(--ease), border-color .35s var(--ease), box-shadow .35s var(--ease);
-  border-bottom: 1px solid transparent;
-}
-.nav.scrolled {
-  background: color-mix(in srgb, var(--paper) 82%, transparent);
-  -webkit-backdrop-filter: saturate(180%) blur(14px);
-  backdrop-filter: saturate(180%) blur(14px);
-  border-bottom-color: var(--line);
-  box-shadow: var(--shadow-sm);
-}
-
-.nav-inner {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  align-items: center;
-  gap: 1rem;
-  height: 80px;
-  transition: height .35s var(--ease);
-}
-.nav.scrolled .nav-inner { height: 66px; }
-
-.brand {
-  display: inline-flex; align-items: center; gap: .65rem;
-  font-family: var(--font-display); font-weight: 800;
-  color: var(--ink); letter-spacing: -.02em;
-  flex: none;
-}
-.brand-mark {
-  width: 36px; height: 36px; border-radius: 11px;
-  transition: transform .35s var(--ease), border-radius .35s var(--ease);
-  display: grid; place-items: center;
-  background: linear-gradient(140deg, var(--o), var(--o-deep));
-  color: #fff; font-size: .82rem; letter-spacing: -.02em;
-  box-shadow: 0 6px 16px -6px rgba(255,107,0,.6);
-}
-.brand:hover .brand-mark { transform: rotate(-8deg) scale(1.05); border-radius: 14px; }
-.brand-name { font-size: 1rem; }
-.brand-name b { color: var(--o-ink); }
-.brand-name b { font-weight: 800; }
-
-.nav-links {
-  display: flex; align-items: center; gap: 2px;
-  justify-self: center;
-  padding: 5px;
-  border-radius: 999px;
-  border: 1px solid var(--line);
-  background: color-mix(in srgb, var(--paper) 70%, transparent);
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
-  box-shadow: var(--shadow-sm);
-  transition: background-color .35s var(--ease), border-color .35s var(--ease), box-shadow .35s var(--ease);
-}
-.nav.scrolled .nav-links {
-  background: var(--paper);
-  border-color: var(--line-strong);
-  box-shadow: var(--shadow-md);
-}
-.nav-links a {
-  position: relative;
-  padding: .5rem .95rem;
-  font-size: .88rem; font-weight: 500;
-  color: var(--muted);
-  border-radius: 999px;
-  transition: color .22s var(--ease), background-color .22s var(--ease);
-}
-.nav-links a::after {
-  content: ""; position: absolute;
-  left: 50%; bottom: 5px; translate: -50% 0;
-  width: 0; height: 2px; border-radius: 2px;
-  background: var(--o);
-  transition: width .28s var(--ease-out);
-}
-.nav-links a:hover { color: var(--ink); }
-.nav-links a:hover::after { width: 14px; }
-.nav-links a.active {
-  color: var(--o-ink); font-weight: 600;
-  background: var(--tint);
-}
-.nav-links a.active::after { width: 0; }
-
-.nav-actions { display: flex; align-items: center; justify-content: flex-end; gap: .45rem; }
-
-.dot {
-  width: 7px; height: 7px; border-radius: 50%;
-  background: var(--o); flex: none;
-  position: relative;
-}
-.dot::after {
-  content: ""; position: absolute; inset: -3px;
-  border-radius: 50%; border: 1.5px solid var(--o);
-  animation: pulse 2.4s var(--ease-out) infinite;
-}
-@keyframes pulse {
-  0%   { transform: scale(.6); opacity: .9; }
-  70%  { transform: scale(1.9); opacity: 0; }
-  100% { transform: scale(1.9); opacity: 0; }
-}
-
-.icon-btn {
-  width: 38px; height: 38px; border-radius: 10px;
-  display: grid; place-items: center;
-  border: 1px solid var(--line);
-  color: var(--muted); background: var(--paper);
-  transition: color .2s, border-color .2s, background-color .2s, transform .2s var(--ease);
-}
-.icon-btn:hover { color: var(--o); border-color: var(--o); transform: translateY(-1px); }
-.icon-btn svg { width: 17px; height: 17px; }
-
-/* Theme toggle icon swap */
-.icon-sun { display: none; }
-[data-theme="dark"] .icon-sun { display: block; }
-[data-theme="dark"] .icon-moon { display: none; }
-
-.nav-toggle { display: none; }
-
-/* Mobile drawer */
-.drawer {
-  position: fixed; inset: 0; z-index: 109;
-  background: var(--paper);
-  padding: 92px var(--gutter) 2rem;
-  display: grid; align-content: start; gap: .2rem;
-  transform: translateY(-12px);
-  opacity: 0; visibility: hidden; pointer-events: none;
-  transition: opacity .3s var(--ease), transform .3s var(--ease), visibility .3s;
-}
-.drawer.open { opacity: 1; visibility: visible; transform: none; pointer-events: auto; }
-.drawer a {
-  font-family: var(--font-display); font-weight: 700;
-  font-size: 1.45rem; color: var(--ink);
-  padding: .62rem 0;
-  border-bottom: 1px solid var(--line);
-  display: flex; align-items: center; justify-content: space-between;
-}
-.drawer a span { font-family: var(--font-mono); font-size: .7rem; color: var(--faint); font-weight: 400; }
-.drawer .drawer-cta { margin-top: 1.5rem; display: grid; gap: .7rem; }
-.drawer .drawer-cta a { border-bottom: none; justify-content: center; font-size: 1rem; }
-.drawer .drawer-cta .btn--ghost { border: 1px solid var(--line-strong); }
-
-/* ---------------------------------------------------------------- */
 /* Buttons                                                          */
-/* ---------------------------------------------------------------- */
 .btn {
   display: inline-flex; align-items: center; justify-content: center; gap: .55rem;
   padding: .82rem 1.35rem;
@@ -250,9 +99,7 @@
 .tlink svg { width: 14px; height: 14px; transition: transform .28s var(--ease); }
 .tlink:hover svg { transform: translate(2px, -2px); }
 
-/* ---------------------------------------------------------------- */
 /* Cards & tags                                                     */
-/* ---------------------------------------------------------------- */
 .card {
   background: var(--paper);
   border: 1px solid var(--line);
@@ -272,9 +119,7 @@
 }
 .tag--o { background: var(--tint); color: var(--o-ink); }
 
-/* ---------------------------------------------------------------- */
 /* TERMINAL - the centrepiece                                       */
-/* ---------------------------------------------------------------- */
 .terminal {
   position: relative;
   background: var(--term-bg);
@@ -283,7 +128,7 @@
   box-shadow: var(--shadow-lg), 0 0 0 1px rgba(0,0,0,.06);
   font-family: var(--font-mono);
   display: flex; flex-direction: column;
-  height: 440px;          /* fixed - output scrolls instead of growing */
+  height: 440px;          
 }
 
 .term-bar {
@@ -309,7 +154,7 @@
   padding: 1.15rem 1.15rem .5rem;
   overflow-y: auto;
   overscroll-behavior: contain;
-  min-height: 0;          /* lets the flex child actually scroll */
+  min-height: 0;         
   font-size: .82rem;
   line-height: 1.85;
   color: var(--term-text);
@@ -381,9 +226,7 @@
   transform: translateY(-1px);
 }
 
-/* ---------------------------------------------------------------- */
 /* Modal                                                            */
-/* ---------------------------------------------------------------- */
 .modal {
   position: fixed; inset: 0; z-index: 200;
   display: grid; place-items: end center;
@@ -425,9 +268,7 @@
 .modal-close:hover { background: var(--o); color: #fff; transform: rotate(90deg); }
 .modal-close svg { width: 16px; height: 16px; }
 
-/* ---------------------------------------------------------------- */
 /* Form                                                             */
-/* ---------------------------------------------------------------- */
 .field { display: grid; gap: .42rem; min-width: 0; }
 .field label {
   font-size: var(--t-xs); font-weight: 600; color: var(--ink);
@@ -477,9 +318,7 @@
 }
 @keyframes spin { to { transform: rotate(360deg); } }
 
-/* ---------------------------------------------------------------- */
 /* Custom cursor (desktop, fine pointer only)                       */
-/* ---------------------------------------------------------------- */
 #cursor, #cursor-ring { display: none; }
 
 @media (hover: hover) and (pointer: fine) and (min-width: 1025px) {
