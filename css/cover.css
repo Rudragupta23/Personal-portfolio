@@ -32,29 +32,32 @@
   position: fixed; inset: 0; z-index: 300;
   display: grid; place-items: center;
   background: var(--cover-ink);
-  transition: opacity .85s var(--ease), transform .85s var(--ease), visibility .85s;
+    transition: opacity .5s var(--ease), transform .5s var(--ease), visibility .5s;
 }
 #preloader.done {
   opacity: 0; visibility: hidden; transform: scale(1.04); pointer-events: none;
 }
 
 .pre-sign {
-  margin: 0;
-  padding: .12em .3em;         
-  font-family: var(--font-hand);
-  font-weight: 600;
-  font-size: clamp(2.6rem, 8vw, 6.4rem);
-  line-height: 1.25;
-  color: var(--cover-gold);
-  letter-spacing: .02em;
-  white-space: nowrap;
-  clip-path: inset(0 100% 0 0);
-  animation: sign-write 1.9s cubic-bezier(.5, 0, .2, 1) .2s forwards;
+  width: min(72vw, 560px);
+  height: auto;
+  overflow: visible;
 }
-@keyframes sign-write { to { clip-path: inset(0 -2% 0 0); } }
+
+.pre-sign path {
+  fill: none;
+  stroke: var(--cover-gold);
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 1 1.1;
+  stroke-dashoffset: 1.05;
+  animation: sign-draw var(--dur) linear var(--delay) forwards;
+}
+@keyframes sign-draw { to { stroke-dashoffset: 0; } }
 
 @media (prefers-reduced-motion: reduce) {
-  .pre-sign { animation: none; clip-path: none; }
+  .pre-sign path { animation: none; stroke-dashoffset: 0; }
 }
 
 /* Cover section */

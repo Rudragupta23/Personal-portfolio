@@ -48,16 +48,16 @@
     initProjectHoverGlow();
   }
 
-  /* Preloader                                                        */
+  /* Preloader */
   function initPreloader() {
     const pre = $("#preloader");
     if (!pre) return;
     const hide = () => pre.classList.add("done");
-    setTimeout(hide, reduced ? 60 : 2200);
-    window.addEventListener("load", () => setTimeout(hide, reduced ? 60 : 2200));
+    setTimeout(hide, reduced ? 60 : 1900);
+    window.addEventListener("load", () => setTimeout(hide, reduced ? 60 : 1900));
   }
 
-  /* Scroll progress bar                                              */
+  /* Scroll progress bar */
   function initNav() {
     const bar = $("#progress");
     if (!bar) return;
