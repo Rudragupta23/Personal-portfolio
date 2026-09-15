@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Certificate - Rudra Gupta</title>
+<meta name="description" content="Certificates earned by Rudra Gupta, full stack developer.">
+<meta name="theme-color" content="#FF6B00">
+<meta name="robots" content="noindex">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+
+<script>
+  try { var t = localStorage.getItem("rg-theme"); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/certificate.css">
+</head>
+
+<body class="cv-page">
+
+<a class="skip-link" href="#cv-main">Skip to content</a>
+
+<header class="cv-bar">
+  <a class="cv-back" href="index.html#credentials">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+    <span>All certifications</span>
+  </a>
+  <a class="cv-name" href="index.html">Rudra <em>Gupta</em></a>
+  <span class="cv-count" id="cv-count" aria-live="polite"></span>
+</header>
+
+<main class="cv" id="cv-main">
+  <div class="cv-stage">
+    <a class="cv-frame" id="cv-frame" href="#" target="_blank" rel="noopener noreferrer">
+      <img id="cv-img" src="" alt="" decoding="async">
+      <span class="cv-zoom">Open full size
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4 10 14M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>
+      </span>
+    </a>
+
+    <nav class="cv-pager" aria-label="Other certificates">
+      <a class="cv-step cv-step--prev" id="cv-prev" href="#">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>
+        <span><small>Previous</small><b></b></span>
+      </a>
+      <a class="cv-step cv-step--next" id="cv-next" href="#">
+        <span><small>Next</small><b></b></span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+      </a>
+    </nav>
+  </div>
+
+  <article class="cv-info" id="cv-info" aria-live="polite"></article>
+</main>
+
+<script src="js/data.js"></script>
+<script src="js/certificate.js"></script>
+</body>
+</html>

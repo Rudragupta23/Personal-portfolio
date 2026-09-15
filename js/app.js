@@ -132,7 +132,6 @@
         open(btn.dataset.id);
         return;
       }
-      // Clicking anywhere on a project card (but not on a real link) opens it.
       const card = e.target.closest(".project");
       if (card && !e.target.closest("a")) {
         open(card.dataset.project);
@@ -216,8 +215,6 @@
 
       const data = Object.fromEntries(new FormData(form).entries());
 
-      // No endpoint configured: hand the message to the visitor's mail
-      // client rather than pretending it was sent.
       if (!D.contact.formEndpoint) {
         const body = `${data.message}\n\n-\n${data.name}\n${data.email}`;
         window.location.href =

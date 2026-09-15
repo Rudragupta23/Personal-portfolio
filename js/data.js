@@ -1,7 +1,7 @@
 
 
 const PORTFOLIO = {
-  /* 1. IDENTITY                                                      */
+  /* 1. IDENTITY */
   person: {
     name: "Rudra Gupta",
     initials: "RG",
@@ -11,12 +11,11 @@ const PORTFOLIO = {
     available: true,
     availableLabel: "Available for opportunities",
 
-    // Hero headline. The word wrapped in {} is painted orange.
     headlineLine1: "I build web products",
     headlineLine2: "that {actually ship}.",
 
-    intro:
-      "I build web products end to end, from the first screen a user sees to the database underneath it. Four platforms are live so far, one of them serving a London-based client while I finish my Computer Science degree at VIT.",
+          intro:
+      "I'm a full stack developer and a Computer Science student at VIT. I build websites and web apps, from the pages people see to the code and database behind them.",
 
     photo: "assets/img/rudra-bengaluru.jpg",
     photoAlt: "Rudra Gupta standing on a rooftop in Bengaluru",
@@ -28,10 +27,9 @@ const PORTFOLIO = {
     portfolio: "https://rudraguptaportfolio.live",
     heading: "Let's build something together.",
     subheading:
-      "I'm always open to internships, full-time roles, and side projects worth staying up for. The fastest way to reach me is email, and I reply within a day.",
+      "I'm always open to internships, full-time roles and side projects worth staying up for. The fastest way to reach me is email and I reply within a day.",
 
-    // Web3Forms. Messages land in the inbox tied to this access key.
-    // Get your own (or change the destination) at https://web3forms.com
+    // Web3Forms
     formEndpoint: "https://api.web3forms.com/submit",
     formAccessKey: "0b1e68ec-80de-43c6-b093-afa63e79425d",
   },
@@ -41,7 +39,6 @@ const PORTFOLIO = {
     { id: "linkedin", label: "LinkedIn", handle: "rudrag23",     url: "https://linkedin.com/in/rudrag23" },
     { id: "leetcode", label: "LeetCode", handle: "Rudragupta23", url: "https://leetcode.com/u/Rudragupta23/" },
     { id: "email",    label: "Email",    handle: "23rudragupta@gmail.com", url: "mailto:23rudragupta@gmail.com" },
-    // footerOnly links appear in the footer, not the hero row
     { id: "instagram", label: "Instagram", handle: "@rud.ra_23", url: "https://www.instagram.com/rud.ra_23/", footerOnly: true },
     { id: "youtube",   label: "YouTube",   handle: "@rudrag05",  url: "https://www.youtube.com/@rudrag05",   footerOnly: true },
   ],
@@ -53,20 +50,20 @@ const PORTFOLIO = {
     text: "One page, no filler: experience, projects, education and the exact stack behind each of them.",
   },
 
-  /* 2. RECRUITER SNAPSHOT (straight from the resume)                 */
+  /* 2. RECRUITER SNAPSHOT */
   snapshot: [
     { value: "9.15", unit: "/10", label: "CGPA", note: "B.Tech CSE, VIT" },
     { value: "2027", unit: "",    label: "Graduating", note: "Sep 2023 - May 2027" },
-    { value: "4",    unit: "",    label: "Shipped projects", note: "3 personal · 1 client" },
-    { value: "6",    unit: "",    label: "Certifications", note: "NPTEL, Oracle, Cisco, AWS" },
+    { value: "15+",    unit: "",    label: "Projects", note: "Personal and internships" },
+    { value: "7",    unit: "",    label: "Certifications", note: "NPTEL, Oracle, Cisco, AWS, Google" },
   ],
 
   /* 3. ABOUT                                                         */
   about: {
-    paragraphs: [
-      "I'm a final-year Computer Science undergraduate at Vellore Institute of Technology with a 9.15 CGPA, and a full-stack developer who has put four web platforms in front of real users. I work across the whole stack rather than one slice of it: React on the surface, Node, Express and Django behind it, MongoDB and MySQL underneath, and AWS when files need somewhere better to live than the app server.",
-      "Right now I'm a Full Stack Developer Intern at The Cognitive, running MathCom Mentors end to end on my own for a London-based client. That means requirements, interface, APIs, testing and deployment, plus four separate user roles that each get their own login and dashboard without ever seeing each other's data.",
-      "Outside client work I build things that solve a problem somebody actually has: an NGO's admissions and attendance moved off paper, a clinic booking system that cannot double-book a slot, a train platform built for travellers who don't read English comfortably. I'm as interested in the interface as the internals, because a race condition and a confusing screen are both bugs.",
+        paragraphs: [
+      "I'm a final-year Computer Science student at Vellore Institute of Technology (VIT) with a 9.15 CGPA. I'm a full stack developer, which means I work on both parts of a website: the pages people see and the code and database behind them. I mostly use React, Node.js, Express, Django, MongoDB, MySQL and AWS.",
+      "Right now I'm a Full Stack Developer Intern at The Cognitive, where I'm building MathCom Mentors, a learning platform for teachers, students and parents. I handle the whole project, from planning and design to coding, testing and putting it live.",
+      "In my own time, I build projects that solve real problems, like a website for an NGO, a clinic appointment booking system and a train travel app. I care about making things that work well and are easy for people to use.",
     ],
     focus: [
       { title: "Building now", body: "MathCom Mentors, a four-role learning platform for a London-based client, shipped solo." },
@@ -76,21 +73,23 @@ const PORTFOLIO = {
     ],
   },
 
-  /* 5. SKILLS  (exactly the resume list - no invented technologies)  */
-  primaryStack: ["React.js", "Node.js", "Express.js", "MongoDB", "AWS S3", "Java"],
-
+  /* 5. SKILLS */
   skills: [
     {
       category: "Languages",
+      icon: "code",
+      blurb: "Java for problem solving, JavaScript and TypeScript for everything that runs on the web.",
       items: [
         { name: "Java", core: true, note: "Data structures, algorithms and object-oriented design" },
-        { name: "JavaScript", note: "The language behind every project on this page" },
+        { name: "JavaScript", core: true, note: "The language behind every project on this page" },
         { name: "TypeScript", note: "Typed React and Node on Yatra Saral" },
         { name: "Python", note: "Backend work on the Pahal Foundation platform" },
       ],
     },
     {
       category: "Frontend",
+      icon: "layout",
+      blurb: "Interfaces built in React, on semantic HTML and hand-written responsive CSS.",
       items: [
         { name: "React.js", core: true, note: "Component-driven interfaces with client-side routing" },
         { name: "HTML", note: "Semantic, accessible document structure" },
@@ -98,22 +97,21 @@ const PORTFOLIO = {
       ],
     },
     {
-      category: "Backend",
+      category: "Backend & databases",
+      icon: "database",
+      blurb: "APIs and business logic in Node and Django, with data in MongoDB or MySQL.",
       items: [
         { name: "Node.js", core: true, note: "Application servers and background jobs" },
         { name: "Express.js", core: true, note: "REST APIs, middleware and role-based auth" },
         { name: "Django", note: "Admin-heavy platforms with server-rendered views" },
-      ],
-    },
-    {
-      category: "Databases",
-      items: [
         { name: "MongoDB", core: true, note: "Document modelling for multi-role applications" },
         { name: "MySQL", note: "Relational schemas, joins and constraints" },
       ],
     },
     {
       category: "Cloud, tools & APIs",
+      icon: "cloud",
+      blurb: "The services that turn an app into a product: storage, payments, AI and calendars.",
       items: [
         { name: "AWS S3", core: true, note: "Offloading uploads so the app server doesn't serve files" },
         { name: "Git & GitHub", note: "Clear, reviewable commit history" },
@@ -139,7 +137,7 @@ const PORTFOLIO = {
       problem:
         "The client needed one platform serving four groups whose interests barely overlap. Teachers set work, students submit it, graders mark it, parents only want to know when something lands. Show the wrong person the wrong screen and the product is dead on arrival.",
       solution:
-        "Four separate authentication paths feeding four dashboards from a single React and Node application, with the homework lifecycle (set with a deadline, submit, mark, write feedback) modelled as one flow that every role sees a different slice of. Uploaded files were moved to AWS S3 so the app server stops storing and serving them, and email became automatic: deadline reminders to students, new-grade notifications to parents.",
+        "Four separate authentication paths feeding four dashboards from a single React and Node application, with the homework lifecycle (set with a deadline, submit, mark, write feedback) modelled as one flow that every role sees a different slice of. Uploaded files were moved to AWS S3 so the app server stops storing and serving them and email became automatic: deadline reminders to students, new-grade notifications to parents.",
       features: [
         "Four isolated roles: admin/teacher, grader, student and parent",
         "Homework set with deadlines, submitted, marked and returned with written feedback",
@@ -179,7 +177,7 @@ const PORTFOLIO = {
       summary:
         "A web platform for an NGO educating underprivileged children, covering admissions, student records, daily attendance, volunteer sign-ups and online donations in one place.",
       problem:
-        "The foundation ran admissions, student records, attendance and volunteer sign-ups on paper. Records got lost, attendance was impossible to look back on, and donations had no auditable trail.",
+        "The foundation ran admissions, student records, attendance and volunteer sign-ups on paper. Records got lost, attendance was impossible to look back on and donations had no auditable trail.",
       solution:
         "A Django platform with two dashboards - one for admins, one for teachers - covering admissions, attendance, volunteers and media. Razorpay handles donations with server-side payment verification, so every transaction leaves a record that can be checked later. Uploads go to AWS S3 to keep files off the app server.",
       features: [
@@ -213,7 +211,7 @@ const PORTFOLIO = {
     },
     {
       id: "healthcare",
-      name: "Healthcare Appointment Manager",
+      name: "Healthcare Appointment",
       tagline: "AI triage in front of a doctor's calendar",
       year: "2026",
       context: "Personal project",
@@ -222,7 +220,7 @@ const PORTFOLIO = {
       summary:
         "A clinic appointment platform with patient, doctor and admin logins, where a Gemini model reads the patient's symptoms before the visit and hands the doctor a summary, an urgency rating and three questions to ask.",
       problem:
-        "Two problems at once. Doctors walk into appointments knowing nothing until the patient starts talking, and any booking system without proper locking will eventually sell the same slot twice.",
+        "Two problems at once. Doctors walk into appointments knowing nothing until the patient starts talking and any booking system without proper locking will eventually sell the same slot twice.",
       solution:
         "Patients describe their symptoms when booking. The Gemini API rates urgency, summarises the complaint and generates three questions for the doctor. On the booking side, a slot is held for 10 minutes while the form is being filled in, so if ten people hit the same slot at once, exactly one gets it and the other nine are told it's taken. Follow-up runs itself: the visit is written to Google Calendar and a reminder email goes out for every single dose of medication, with failed sends retried five times.",
       features: [
@@ -266,9 +264,9 @@ const PORTFOLIO = {
       summary:
         "A train travel platform covering the whole journey: seat and group booking, e-tickets, live tracking, platform services, pantry ordering and insurance, built to be usable by elderly and low-literacy travellers.",
       problem:
-        "Booking a train is only the first five minutes of a journey. Everything after it (tracking, a coolie, a wheelchair, food, a cancellation) lives somewhere else, and most of it assumes a confident English reader with good eyesight.",
+        "Booking a train is only the first five minutes of a journey. Everything after it (tracking, a coolie, a wheelchair, food, a cancellation) lives somewhere else and most of it assumes a confident English reader with good eyesight.",
       solution:
-        "One platform for the whole trip: seat and group booking with e-ticket generation, live tracking, platform services including cloak room, coolie and wheelchair, pantry ordering and insurance. Sign-up is secured with email OTP verification and password recovery, and a profile area holds ticket downloads, cancellations, booking history and saved passengers. The interface runs in Hindi and English with read-aloud support and adjustable font sizes.",
+        "One platform for the whole trip: seat and group booking with e-ticket generation, live tracking, platform services including cloak room, coolie and wheelchair, pantry ordering and insurance. Sign-up is secured with email OTP verification and password recovery and a profile area holds ticket downloads, cancellations, booking history and saved passengers. The interface runs in Hindi and English with read-aloud support and adjustable font sizes.",
       features: [
         "Seat and group booking with e-ticket generation",
         "Live train tracking",
@@ -310,63 +308,154 @@ const PORTFOLIO = {
       summary:
         "Sole developer on MathCom Mentors, a multi-role learning platform for a London-based client - taking requirements through to a tested, deployed product.",
       responsibilities: [
-        "Handle the project end to end on my own: take the client's requirements, build the pages users see and the work behind them, and keep four kinds of users apart, each with their own login and dashboard - admin/teacher, grader, student and parent.",
+        "Handle the project end to end on my own: take the client's requirements, build the pages users see and the work behind them and keep four kinds of users apart, each with their own login and dashboard - admin/teacher, grader, student and parent.",
         "Built the homework side from start to finish: teachers set work with a deadline, students hand it in, a grader marks it and writes feedback on each one, alongside a library of study material - and I test every flow myself before handing it over.",
-        "Moved uploaded files to AWS S3 so the app server no longer has to store or serve them, set up automatic emails that remind students of deadlines and tell parents when new grades are out, and keep the code in Git in clear commits.",
+        "Moved uploaded files to AWS S3 so the app server no longer has to store or serve them, set up automatic emails that remind students of deadlines and tell parents when new grades are out and keep the code in Git in clear commits.",
       ],
       stack: ["React.js", "Node.js", "MongoDB", "AWS S3"],
     },
   ],
 
-  /* 8. CERTIFICATIONS                                                */
+  /* 8. CERTIFICATIONS */
   certifications: [
     {
-      name: "Marketing Analytics",
-      issuer: "NPTEL · IIT Kharagpur",
-      year: "2026",
-      highlight: "Elite + Gold · Top 5% · 97%",
-      note: "Scored in the top 5% of the national cohort.",
-      credentialUrl: "",
-    },
-    {
+      id: "oracle-agentic-ai",
       name: "Oracle Certified Foundations Associate, Agentic AI",
       issuer: "Oracle University",
       year: "2026",
+      date: "Aug 2026",
       highlight: "",
-      note: "Foundations of agentic AI systems and their building blocks.",
+      note: "Recognised by Oracle as certified in the foundations of agentic AI systems and their building blocks.",
+      facts: [
+        { label: "Issued", value: "August 5, 2026" },
+        { label: "Credential ID", value: "103505445AAI26OFA" },
+      ],
+      image: "assets/img/certificates/oracle-agentic-ai-foundations.jpg",
+      thumb: "assets/img/certificates/oracle-agentic-ai-foundations-thumb.jpg",
+      pdf: "assets/certificates/oracle-agentic-ai-foundations.pdf",
       credentialUrl: "",
     },
     {
+      id: "servicenow-internship",
       name: "ServiceNow Virtual Internship Program",
-      issuer: "ServiceNow University / SmartBridge",
+      issuer: "ServiceNow University, AICTE, SmartBridge",
       year: "2026",
+      date: "Jul 2026",
       highlight: "",
-      note: "Platform fundamentals delivered as a structured virtual internship.",
+      note: "Platform fundamentals delivered as a structured virtual internship, run with AICTE under the Ministry of Education.",
+      facts: [
+        { label: "Issued", value: "July 6, 2026" },
+        { label: "Certificate ID", value: "SNU2028082" },
+      ],
+      covered: [
+        "ServiceNow Administration Fundamentals",
+        "Introduction to Agentic AI",
+        "Introduction to Flows",
+        "Automated Test Framework (ATF) Essentials",
+        "Getting started with Reports",
+        "Certified System Administrator (CSA) exam preparation",
+      ],
+      image: "assets/img/certificates/servicenow-virtual-internship.jpg",
+      thumb: "assets/img/certificates/servicenow-virtual-internship-thumb.jpg",
+      pdf: "assets/certificates/servicenow-virtual-internship.pdf",
       credentialUrl: "",
     },
     {
+      id: "cisco-networking-basics",
       name: "Networking Basics",
       issuer: "Cisco Networking Academy",
       year: "2026",
+      date: "May 2026",
       highlight: "",
       note: "Addressing, protocols and how traffic actually moves between machines.",
+      facts: [
+        { label: "Issued", value: "May 9, 2026" },
+        { label: "Level", value: "Student credential, verified" },
+      ],
+      covered: [
+        "Network types, components and connections",
+        "Standards and protocols in network communication",
+        "How communication works on Ethernet networks",
+        "IPv4 and IPv6 addressing",
+        "How routers connect networks together",
+        "Testing and troubleshooting connectivity",
+        "Configuring a wireless router and client securely",
+      ],
+      image: "assets/img/certificates/cisco-networking-basics.jpg",
+      thumb: "assets/img/certificates/cisco-networking-basics-thumb.jpg",
+      pdf: "assets/certificates/cisco-networking-basics.pdf",
       credentialUrl: "",
     },
     {
-      name: "Introduction to Machine Learning",
-      issuer: "NPTEL · IIT Madras",
-      year: "2025",
-      highlight: "Elite",
-      note: "Supervised and unsupervised learning, evaluation and model selection.",
+      id: "nptel-marketing-analytics",
+      name: "Marketing Analytics",
+      issuer: "NPTEL, IIT Kharagpur",
+      year: "2026",
+      date: "Jan–Apr 2026",
+      highlight: "Elite + Gold, top 5%",
+      note: "A 12-week course, finished with a 97% consolidated score and a place in the top 5% of the national cohort.",
+      facts: [
+        { label: "Score", value: "97%" },
+        { label: "Assignments", value: "25 / 25" },
+        { label: "Proctored exam", value: "72 / 75" },
+        { label: "Candidates certified", value: "3,495" },
+        { label: "Roll no.", value: "NPTEL26MG33S952403232" },
+      ],
+      image: "assets/img/certificates/nptel-marketing-analytics.jpg",
+      thumb: "assets/img/certificates/nptel-marketing-analytics-thumb.jpg",
+      pdf: "assets/certificates/nptel-marketing-analytics.pdf",
       credentialUrl: "",
     },
     {
+      id: "aws-technical-essentials",
       name: "AWS Technical Essentials",
       issuer: "AWS Training & Certification",
       year: "2025",
+      date: "Sep 2025",
       highlight: "",
       note: "Core AWS services, the groundwork behind the S3 work in my projects.",
+      facts: [
+        { label: "Completed", value: "September 18, 2025" },
+      ],
+      image: "assets/img/certificates/aws-technical-essentials.jpg",
+      thumb: "assets/img/certificates/aws-technical-essentials-thumb.jpg",
+      pdf: "assets/certificates/aws-technical-essentials.pdf",
       credentialUrl: "",
+    },
+    {
+      id: "nptel-machine-learning",
+      name: "Introduction to Machine Learning",
+      issuer: "NPTEL, IIT Madras",
+      year: "2025",
+      date: "Jan–Apr 2025",
+      highlight: "Elite",
+      note: "Supervised and unsupervised learning, evaluation and model selection, over a 12-week course.",
+      facts: [
+        { label: "Duration", value: "12 weeks" },
+        { label: "Candidates certified", value: "6,009" },
+        { label: "Roll no.", value: "NPTEL25CS46S450400246" },
+      ],
+      image: "assets/img/certificates/nptel-machine-learning.jpg",
+      thumb: "assets/img/certificates/nptel-machine-learning-thumb.jpg",
+      pdf: "assets/certificates/nptel-machine-learning.pdf",
+      credentialUrl: "",
+    },
+    {
+      id: "google-computer-networking",
+      name: "The Bits and Bytes of Computer Networking",
+      issuer: "Google, Coursera",
+      year: "2024",
+      date: "Oct 2024",
+      highlight: "",
+      note: "Google's networking course: the layers of the network model, TCP/IP, DNS and DHCP and troubleshooting real connectivity problems.",
+      facts: [
+        { label: "Completed", value: "October 13, 2024" },
+        { label: "Verify code", value: "I1X4MWER8MWD" },
+      ],
+      image: "assets/img/certificates/google-bits-and-bytes-networking.jpg",
+      thumb: "assets/img/certificates/google-bits-and-bytes-networking-thumb.jpg",
+      pdf: "assets/certificates/google-bits-and-bytes-networking.pdf",
+      credentialUrl: "https://coursera.org/verify/I1X4MWER8MWD",
     },
   ],
 

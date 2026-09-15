@@ -27,6 +27,11 @@
     badge: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="9" r="6"/><path d="m8.2 14.3-1.4 6.4L12 18.2l5.2 2.5-1.4-6.4"/></svg>',
     down: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg>',
     up: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg>',
+    eye: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg>',
+    code: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 7 3 12l5 5M16 7l5 5-5 5M14 4l-4 16"/></svg>',
+    layout: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2.5"/><path d="M3 9h18M9 9v11"/></svg>',
+    database: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5.5" rx="8" ry="3"/><path d="M4 5.5v13c0 1.66 3.58 3 8 3s8-1.34 8-3v-13M4 12c0 1.66 3.58 3 8 3s8-1.34 8-3"/></svg>',
+    cloud: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 19h10.5a4.5 4.5 0 0 0 .6-8.96A6 6 0 0 0 6.4 11.1 4 4 0 0 0 7 19Z"/></svg>',
     close: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6 18 18M18 6 6 18"/></svg>',
   };
 
@@ -86,42 +91,73 @@
       .join("");
   }
 
-  /* SKILLS                                                           */
+  /* SKILLS
+     Four cards. Each tag is a button: hovering, focusing or tapping it
+     swaps the line at the bottom of the card for that tool's note.     */
   function renderSkills() {
-    const strip = D.primaryStack || [];
-    $("#skills-wrap").innerHTML = `
-      ${strip.length ? `
-        <div class="stack-strip reveal">
-          <span class="stack-strip-label">What I reach for first</span>
-          <div class="stack-strip-items">
-            ${strip.map((s) => `<span class="stack-pill">${esc(s)}</span>`).join("")}
-          </div>
-        </div>` : ""}
-      ${D.skills
-        .map(
-          (cat) => `
-          <section class="skill-row reveal">
-            <div class="skill-rail">
-              <h3>${esc(cat.category)}</h3>
-              <span class="skill-count">${cat.items.length} ${cat.items.length === 1 ? "tool" : "tools"}</span>
-            </div>
-            <div class="skill-grid">
-              ${cat.items
-                .map(
-                  (s) => `
-                  <article class="skill${s.core ? " skill--core" : ""}">
-                    <span class="skill-mark" aria-hidden="true">${esc(s.name.trim().charAt(0))}</span>
-                    <div class="skill-text">
-                      <b>${esc(s.name)}</b>
-                      <span>${esc(s.note)}</span>
-                    </div>
-                  </article>`
-                )
-                .join("")}
-            </div>
-          </section>`
-        )
-        .join("")}`;
+    const wrap = $("#skills-wrap");
+    wrap.innerHTML = `
+      <div class="stack-grid">
+        ${D.skills
+          .map(
+            (cat, ci) => `
+            <article class="stack-card reveal" style="--d:${ci * 70}ms">
+              <header class="stack-card__head">
+                <h3>${esc(cat.category)}</h3>
+                <span class="stack-card__count">${String(cat.items.length).padStart(2, "0")}</span>
+              </header>
+              <ul class="stack-tags">
+                ${cat.items
+                  .map(
+                    (s) => `
+                    <li><button type="button" class="stack-tag${s.core ? " stack-tag--core" : ""}"
+                         data-note="${esc(s.note)}" aria-describedby="stack-note-${ci}">${esc(s.name)}</button></li>`
+                  )
+                  .join("")}
+              </ul>
+              <p class="stack-card__note" id="stack-note-${ci}" aria-live="polite"
+                 data-default="${esc(cat.blurb || "")}">${esc(cat.blurb || "")}</p>
+              <span class="stack-card__icon" aria-hidden="true">${I[cat.icon] || I.code}</span>
+            </article>`
+          )
+          .join("")}
+      </div>`;
+
+    const show = (tag) => {
+      const card = tag.closest(".stack-card");
+      const note = $(".stack-card__note", card);
+      card.querySelectorAll(".stack-tag.is-on").forEach((t) => t.classList.remove("is-on"));
+      tag.classList.add("is-on");
+      note.innerHTML = `<b>${esc(tag.textContent)}</b>${esc(tag.dataset.note)}`;
+      note.classList.add("is-tool");
+    };
+    const reset = (card) => {
+      const note = $(".stack-card__note", card);
+      card.querySelectorAll(".stack-tag.is-on").forEach((t) => t.classList.remove("is-on"));
+      note.textContent = note.dataset.default;
+      note.classList.remove("is-tool");
+    };
+
+    wrap.addEventListener("mouseover", (e) => {
+      const tag = e.target.closest(".stack-tag");
+      if (tag) show(tag);
+    });
+    wrap.addEventListener("focusin", (e) => {
+      const tag = e.target.closest(".stack-tag");
+      if (tag) show(tag);
+    });
+    wrap.addEventListener("click", (e) => {
+      const tag = e.target.closest(".stack-tag");
+      if (tag) show(tag);
+    });
+    wrap.querySelectorAll(".stack-card").forEach((card) => {
+      card.addEventListener("mouseleave", () => {
+        if (!card.contains(document.activeElement)) reset(card);
+      });
+      card.addEventListener("focusout", (e) => {
+        if (!card.contains(e.relatedTarget)) reset(card);
+      });
+    });
   }
 
   /* PROJECTS                                                         */
@@ -269,20 +305,27 @@
       .join("");
   }
 
-  /* CERTIFICATIONS & FOUNDATIONS                                     */
+  /* CERTIFICATIONS
+     One list. Hovering a row slides in a preview of the certificate;
+     the eye button (or anywhere on the row) opens its viewer page.     */
   function renderCerts() {
-    $("#cert-grid").innerHTML = D.certifications
+    $("#cert-list").innerHTML = D.certifications
       .map(
-        (c, i) => `
-        <article class="cert reveal" style="--d:${i * 60}ms">
-          <div class="cert-badge">${I.badge}</div>
-          <span class="cert-year">${esc(c.year)}</span>
-          <b>${esc(c.name)}</b>
-          <div class="cert-issuer">${esc(c.issuer)}</div>
-          ${c.highlight ? `<span class="cert-highlight">${esc(c.highlight)}</span>` : ""}
-          <p class="cert-note">${esc(c.note)}</p>
-          ${c.credentialUrl ? `<a class="tlink" style="margin-top:.5rem" href="${esc(c.credentialUrl)}" target="_blank" rel="noopener noreferrer">Verify ${I.ext}</a>` : ""}
-        </article>`
+        (c) => `
+        <li class="cert-row">
+          <div class="cert-row__main">
+            <h3 class="cert-row__name">${esc(c.name)}</h3>
+            <p class="cert-row__meta">
+              <span class="cert-row__issuer">${esc(c.issuer)}</span>
+              ${c.highlight ? `<span class="cert-row__flag">${esc(c.highlight)}</span>` : ""}
+              <span class="cert-row__date cert-row__date--inline">${esc(c.date || c.year)}</span>
+            </p>
+          </div>
+          ${c.thumb ? `<span class="cert-row__peek" aria-hidden="true"><img src="${esc(c.thumb)}" alt="" loading="lazy" decoding="async"></span>` : ""}
+          <span class="cert-row__date">${esc(c.date || c.year)}</span>
+          <a class="cert-row__eye" href="certificate.html?c=${esc(c.id)}" data-cursor="hot"
+             aria-label="View certificate: ${esc(c.name)}">${I.eye}</a>
+        </li>`
       )
       .join("");
   }
@@ -392,7 +435,7 @@
           <li><a href="#skills">Skills</a></li>
           <li><a href="#projects">Projects</a></li>
           <li><a href="#experience">Experience</a></li>
-          <li><a href="#credentials">Credentials</a></li>
+          <li><a href="#credentials">Certifications</a></li>
         </ul>
       </nav>
 

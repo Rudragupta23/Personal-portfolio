@@ -1,7 +1,6 @@
 
 
 :root {
-  /* ---- Light theme (default) ---- */
   --paper:        #FFFFFF;
   --paper-2:      #FAF8F5;
   --paper-3:      #F4F1EC;
@@ -19,7 +18,7 @@
   --o:            #FF6B00;
   --o-2:          #FF8A3D;
   --o-deep:       #D94F00;
-  --o-ink:        #B33F00;   /* orange readable on white */
+  --o-ink:        #B33F00;  
 
   --term-bg:      #1A1815;
   --term-bar:     #2B2E3A;
@@ -226,7 +225,6 @@ p { text-wrap: pretty; }
 }
 .skip-link:focus { transform: translate(-50%, 0); }
 
-/* Scroll reveal (one motion pattern, used sparingly)               */
 .reveal {
   opacity: 0;
   transform: translateY(18px);

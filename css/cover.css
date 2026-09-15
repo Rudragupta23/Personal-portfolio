@@ -12,6 +12,10 @@
   --menu-chip:   rgba(255, 255, 255, .45);
   --menu-chip-h: rgba(255, 255, 255, .72);
   --menu-line:   rgba(194, 83, 26, .28);
+
+  --font-fat:   "Archivo Black", "Plus Jakarta Sans", Impact, sans-serif;
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-hand:  "Dancing Script", "Segoe Script", cursive;
 }
 
 [data-theme="dark"] {
@@ -21,10 +25,6 @@
   --menu-chip:   rgba(255, 255, 255, .06);
   --menu-chip-h: rgba(255, 255, 255, .13);
   --menu-line:   rgba(255, 148, 72, .3);
-
-  --font-fat:   "Archivo Black", "Plus Jakarta Sans", Impact, sans-serif;
-  --font-serif: "Playfair Display", Georgia, serif;
-  --font-hand:  "Dancing Script", "Segoe Script", cursive;
 }
 
 /* Preloader */
@@ -79,30 +79,95 @@
   pointer-events: none;
 }
 
+/* Circle reveal
+   .cover__reveal     full-size wrapper, clips everything to the cover
+   .cover__lens       the circle itself. It is masked by circle-mask.png and
+                      moved with transform only (GPU), so it never repaints
+   .cover__lens-inner counter-moves so the photo + text stay perfectly still
+                      while the circle glides over them                       */
 .cover__reveal {
   position: absolute; inset: 0;
-  opacity: 0;
-  transition: opacity .4s var(--ease);
-  --mw: 0px; --mh: 0px; --mx: -9999px; --my: -9999px;
-  -webkit-mask-image: url("../assets/img/cover/tear-mask.png");
-  mask-image: url("../assets/img/cover/tear-mask.png");
-  -webkit-mask-repeat: no-repeat;  mask-repeat: no-repeat;
-  -webkit-mask-size: var(--mw) var(--mh);  mask-size: var(--mw) var(--mh);
-  -webkit-mask-position: var(--mx) var(--my);  mask-position: var(--mx) var(--my);
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.cover__lens {
+  --d: 560px;                      /* circle canvas size, set by cover.js */
+  position: absolute; top: 0; left: 0;
+  width: var(--d); height: var(--d);
+  overflow: hidden;
+  transform-origin: 0 0;
+  transform: translate3d(-9999px, -9999px, 0) scale(0);
+  visibility: hidden;
+  will-change: transform;
+  -webkit-mask-image: url("../assets/img/cover/circle-mask.png");
+          mask-image: url("../assets/img/cover/circle-mask.png");
+  -webkit-mask-size: 100% 100%;  mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;
+}
+
+.cover__lens-inner {
+  position: absolute; top: 0; left: 0;
+  width: var(--cw, 100vw); height: var(--ch, 100svh);   /* = cover size */
+  transform-origin: 0 0;
+  will-change: transform;
 }
 
 .cover__edge {
   position: absolute; top: 0; left: 0;
-  width: 0; height: 0;
-  opacity: 0;
+  z-index: 2;
+  width: var(--d, 560px); height: var(--d, 560px);
+  max-width: none;
+  transform-origin: 0 0;
+  transform: translate3d(-9999px, -9999px, 0) scale(0);
+  visibility: hidden;
   pointer-events: none;
-  transition: opacity .35s var(--ease);
-  filter:
-    drop-shadow(0 0 6px rgba(255,255,255,.95))
-    drop-shadow(0 0 20px rgba(255,255,255,.5));
+  will-change: transform;
+  /* glow is baked into circle-edge.png - no CSS filter, so no per-frame repaint */
 }
-.cover.is-tearing .cover__reveal { opacity: 1; }
-.cover.is-tearing .cover__edge { opacity: 1; }
+
+.cover.is-tearing .cover__lens,
+.cover.is-tearing .cover__edge { visibility: visible; }
+
+/* Hint + scroll cue */
+.cover__hint {
+  position: absolute; left: 50%; bottom: calc(4vh + 84px);
+  z-index: 4;
+  transform: translateX(-50%);
+  font-family: var(--font-body);
+  font-size: 12px; letter-spacing: .04em;
+  color: #fff; opacity: .85;
+  text-shadow: 0 1px 12px rgba(0,0,0,.45);
+  white-space: nowrap;
+  pointer-events: none;
+  transition: opacity .6s var(--ease);
+}
+.cover.has-hovered .cover__hint { opacity: 0; }
+
+.cover__cue {
+  position: absolute; left: 50%; bottom: 4vh;
+  z-index: 4;
+  width: 2px; height: 64px;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+.cover__cue b {
+  display: block; width: 1px; height: 64px; margin: 0 auto;
+  background: rgba(255,255,255,.45);
+}
+.cover__cue i {
+  position: absolute; left: 50%; top: 0;
+  width: 5px; height: 5px; margin-left: -2.5px;
+  border-radius: 50%; background: #fff;
+  animation: cue-drop 2.2s var(--ease) infinite;
+}
+@keyframes cue-drop {
+  0%   { top: 0;                  opacity: 0; }
+  20%  { opacity: 1; }
+  80%  { opacity: 1; }
+  100% { top: calc(100% - 5px);   opacity: 0; }
+}
 
 .cover__hidden {
   position: absolute;
@@ -141,9 +206,12 @@
   transition: padding .35s var(--ease), background-color .35s var(--ease),
               border-color .35s var(--ease), box-shadow .35s var(--ease);
   border-bottom: 1px solid transparent;
+  pointer-events: none;               /* empty header space lets the hover reach the photo */
 }
+.site-head > * { pointer-events: auto; }   /* Menu, name, Let's chat stay clickable */
 
 .site-head.is-solid {
+  pointer-events: auto;
   padding-block: clamp(11px, 1.7vh, 16px);
   background: color-mix(in srgb, var(--paper) 86%, transparent);
   -webkit-backdrop-filter: saturate(180%) blur(14px);
@@ -303,7 +371,7 @@
   .head-name { font-size: 15px; }
   .head-btn { font-size: 12px; gap: 10px; }
   .head-bars { width: 26px; gap: 5px; }
-  .cover__cue b { height: 46px; }
+  .cover__cue, .cover__cue b { height: 46px; }
   .cover__hint { bottom: calc(5vh + 74px); font-size: 10px; }
 }
 
@@ -317,4 +385,6 @@
 @media (prefers-reduced-motion: reduce) {
   .cover__reveal { display: none; }
   .cover__edge { display: none; }
+  .cover__hint { display: none; }
+  .cover__cue i { animation: none; opacity: 1; }
 }

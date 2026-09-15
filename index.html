@@ -25,6 +25,11 @@
 
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 
+<link rel="preload" as="image" href="assets/img/cover/normal.png" fetchpriority="high">
+<link rel="preload" as="image" href="assets/img/cover/suit.png">
+<link rel="preload" as="image" href="assets/img/cover/suit-cutout.png">
+<link rel="preload" as="image" href="assets/img/cover/circle-mask.png">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Dancing+Script:wght@600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
@@ -76,7 +81,7 @@
     <button class="menu__item" type="button" data-go="skills">Skills</button>
     <button class="menu__item" type="button" data-go="projects">Projects</button>
     <button class="menu__item" type="button" data-go="experience">Experience</button>
-    <button class="menu__item" type="button" data-go="credentials">Credentials</button>
+    <button class="menu__item" type="button" data-go="credentials">Certifications</button>
     <button class="menu__item" type="button" data-go="activity">Activity</button>
     <button class="menu__item" type="button" data-go="contact">Contact</button>
   </nav>
@@ -112,26 +117,30 @@
 
   <!-- COVER -->
   <section class="cover" id="cover" aria-label="Introduction">
-    <img class="cover__layer" src="assets/img/cover/portrait-casual.jpg"
+    <img class="cover__layer" src="assets/img/cover/normal.png"
          alt="Rudra Gupta" fetchpriority="high" decoding="async">
 
     <div class="cover__reveal" id="cover-reveal" aria-hidden="true">
-      <img class="cover__layer" src="assets/img/cover/portrait-suit.jpg" alt="" decoding="async">
-      
-      <div class="cover__hidden">
-        <h2 class="cover__word">PORTFOLIO</h2>
-        <div class="cover__sub">
-          <span>WEB DEVELOPER</span>
-          <span>PROBLEM SOLVER</span>
+      <div class="cover__lens" id="cover-lens">
+        <div class="cover__lens-inner" id="cover-lens-inner">
+          <img class="cover__layer" src="assets/img/cover/suit.png" alt="" decoding="async">
+
+          <div class="cover__hidden">
+            <h2 class="cover__word">PORTFOLIO</h2>
+            <div class="cover__sub">
+              <span>WEB DEVELOPER | AI</span>
+              <span>CREATIVE | DESIGN</span>
+            </div>
+          </div>
+
+          <img class="cover__layer cover__layer--front" src="assets/img/cover/suit-cutout.png" alt="" decoding="async">
         </div>
       </div>
-
-      <img class="cover__layer cover__layer--front" src="assets/img/cover/portrait-suit-cutout.png" alt="" decoding="async">
     </div>
 
-    <img class="cover__edge" id="cover-edge" src="assets/img/cover/tear-edge.png" alt="" aria-hidden="true">
+    <img class="cover__edge" id="cover-edge" src="assets/img/cover/circle-edge.png" alt="" aria-hidden="true">
 
-    <p class="cover__hint">Hover over the portrait</p>
+    <p class="cover__hint" id="cover-hint">Hover over the portrait</p>
 
     <div class="cover__cue" aria-hidden="true"><i></i><b></b></div>
   </section>
@@ -164,9 +173,6 @@
 
       <div class="hero-visual">
         <div class="term-shell">
-        <div class="float-card float-card--a" aria-hidden="true">
-          <b>9.15</b><span>CGPA · VIT</span>
-        </div>
         <div class="terminal" id="terminal">
           <div class="term-bar">
             <div class="term-dots" aria-hidden="true"><i></i><i></i><i></i></div>
@@ -222,8 +228,8 @@
     <div class="wrap">
       <div class="section-head reveal">
         <span class="section-mark">Technical skills</span>
-        <h2>The stack, and what I actually use each part for.</h2>
-        <p>No percentage bars. Every technology here appears in at least one shipped project.</p>
+        <h2>The stack and what I actually use each part for.</h2>
+        <p>Every tool here is used in at least one shipped project. Filled tags are the ones I use most and you can hover or tap any tag to see where it's used.</p>
       </div>
       <div id="skills-wrap"></div>
     </div>
@@ -234,8 +240,8 @@
     <div class="wrap">
       <div class="section-head reveal">
         <span class="section-mark">Selected projects</span>
-        <h2>Four things I built, and what broke along the way.</h2>
-        <p>Click any card for the full case study - the problem, the architecture, and the part that took longest.</p>
+        <h2>Four things I built and what broke along the way.</h2>
+        <p>Click any card for the full case study - the problem, the architecture and the part that took longest.</p>
       </div>
       <div class="projects-list" id="projects-list"></div>
     </div>
@@ -258,10 +264,9 @@
       <div class="section-head reveal">
         <span class="section-mark">Certifications</span>
         <h2>Formal credentials.</h2>
+        <p>Newest first. Open any certificate with the eye button to see the original.</p>
       </div>
-      <div class="cert-grid" id="cert-grid"></div>
-
-
+      <ul class="cert-list reveal" id="cert-list"></ul>
     </div>
   </section>
 

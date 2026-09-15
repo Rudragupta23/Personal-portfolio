@@ -135,7 +135,10 @@
         const out = [line("Certifications", "head"), SP];
         D.certifications.forEach((c) => {
           out.push(line(esc(c.name), "good"));
-          out.push(line("    " + esc(c.issuer) + ", " + esc(c.year), "dim"));
+          out.push(line("    " + esc(c.issuer) + ", " + esc(c.date || c.year), "dim"));
+          if (c.id) {
+            out.push(line('    <a href="certificate.html?c=' + esc(c.id) + '">view certificate</a>', "dim"));
+          }
         });
         return out;
       },
@@ -228,9 +231,9 @@
     ls: {
       desc: "list the sections of this site",
       run() {
-        const s = [
-          "about/", "journey/", "skills/", "projects/", "experience/",
-          "certifications/", "foundations/", "activity/", "resume.pdf", "contact/",
+          const s = [
+          "about/", "skills/", "projects/", "experience/",
+          "certifications/", "activity/", "resume.pdf", "contact/",
         ];
         return [line(s.map((x) => `<span class="dimx">${esc(x)}</span>`).join("   "), "out")];
       },
