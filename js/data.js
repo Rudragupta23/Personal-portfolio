@@ -55,14 +55,14 @@ const PORTFOLIO = {
     { value: "9.15", unit: "/10", label: "CGPA", note: "B.Tech CSE, VIT" },
     { value: "2027", unit: "",    label: "Graduating", note: "Sep 2023 - May 2027" },
     { value: "15+",    unit: "",    label: "Projects", note: "Personal and internships" },
-    { value: "7",    unit: "",    label: "Certifications", note: "NPTEL, Oracle, Cisco, AWS, Google" },
+    { value: "8",    unit: "",    label: "Certifications", note: "NPTEL, Oracle, Cisco, AWS, Google, MathWorks" },
   ],
 
   /* 3. ABOUT                                                         */
   about: {
         paragraphs: [
       "I'm a final-year Computer Science student at Vellore Institute of Technology (VIT) with a 9.15 CGPA. I'm a full stack developer, which means I work on both parts of a website: the pages people see and the code and database behind them. I mostly use React, Node.js, Express, Django, MongoDB, MySQL and AWS.",
-      "Right now I'm a Full Stack Developer Intern at The Cognitive, where I'm building MathCom Mentors, a learning platform for teachers, students and parents. I handle the whole project, from planning and design to coding, testing and putting it live.",
+      "I recently completed a Full Stack Developer Internship at The Cognitive, where I built MathCom Mentors, a learning platform for teachers, students and parents. I handled the whole project, from planning and design to coding, testing and putting it live.",
       "In my own time, I build projects that solve real problems, like a website for an NGO, a clinic appointment booking system and a train travel app. I care about making things that work well and are easy for people to use.",
     ],
     focus: [
@@ -111,10 +111,10 @@ const PORTFOLIO = {
     {
       category: "Cloud, tools & APIs",
       icon: "cloud",
-      blurb: "The services that turn an app into a product: storage, payments, AI and calendars.",
+      blurb: "The services that turn an app into a product: cloud infrastructure, version control and APIs.",
       items: [
-        { name: "AWS S3", core: true, note: "Offloading uploads so the app server doesn't serve files" },
-        { name: "Git & GitHub", note: "Clear, reviewable commit history" },
+        { name: "AWS (S3, CloudFront, SNS)", core: true, note: "Cloud storage, CDN and notification services" },
+        { name: "Git & GitHub", core: true, note: "Clear, reviewable commit history and version control" },
         { name: "Gemini API", note: "AI triage and summarisation inside a product flow" },
         { name: "Razorpay", note: "Payments with server-side verification" },
         { name: "Google Calendar API", note: "Writing appointments into real calendars" },
@@ -303,16 +303,16 @@ const PORTFOLIO = {
       role: "Full Stack Developer Intern",
       company: "The Cognitive",
       location: "Toronto, ON, Canada (Remote)",
-      period: "Aug 2026 - Present",
-      current: true,
+      period: "Aug 2026 - Sep 2026",
+      current: false,
       summary:
         "Sole developer on MathCom Mentors, a multi-role learning platform for a London-based client - taking requirements through to a tested, deployed product.",
       responsibilities: [
-        "Handle the project end to end on my own: take the client's requirements, build the pages users see and the work behind them and keep four kinds of users apart, each with their own login and dashboard - admin/teacher, grader, student and parent.",
-        "Built the homework side from start to finish: teachers set work with a deadline, students hand it in, a grader marks it and writes feedback on each one, alongside a library of study material - and I test every flow myself before handing it over.",
-        "Moved uploaded files to AWS S3 so the app server no longer has to store or serve them, set up automatic emails that remind students of deadlines and tell parents when new grades are out and keep the code in Git in clear commits.",
+        "Handled the project end to end on my own: took the client's requirements, built the pages users see and the work behind them and kept four kinds of users apart, each with their own login and dashboard: admin/teacher, grader, student and parent.",
+        "Built the homework side from start to finish: teachers set work with a deadline, students hand it in, a grader marks it and writes feedback on each one, alongside a library of study material - and I tested every flow myself before handing it over.",
+        "Moved uploaded files to AWS S3 and served them through CloudFront to keep them off the app server, used AWS SNS to send deadline reminders to students and grade alerts to parents and kept the code in Git in clear commits."
       ],
-      stack: ["React.js", "Node.js", "MongoDB", "AWS S3"],
+      stack: ["React.js", "Node.js", "MongoDB", "AWS S3", "AWS CloudFront", "AWS SNS"],
     },
   ],
 
@@ -457,6 +457,22 @@ const PORTFOLIO = {
       pdf: "assets/certificates/google-bits-and-bytes-networking.pdf",
       credentialUrl: "https://coursera.org/verify/I1X4MWER8MWD",
     },
+    {
+      id: "matlab-onramp",
+      name: "MATLAB Onramp",
+      issuer: "MathWorks | Training Services",
+      year: "2023",
+      date: "Aug 2023",
+      highlight: "",
+      note: "Successfully completed 100% of the self-paced training course.",
+      facts: [
+        { label: "Completed", value: "August 20, 2023" },
+      ],
+      image: "assets/img/certificates/MATLAB certifiacte.jpg",
+      thumb: "assets/img/certificates/MATLAB certifiacte.jpg",
+      pdf: "assets/img/certificates/MATLAB certifiacte.jpg",
+      credentialUrl: "",
+    }
   ],
 
   /* 10. CODING ACTIVITY                                              */
